@@ -126,7 +126,7 @@ set smartcase		" Do smart case matching
 set incsearch		" Incremental search
 " set autowrite		" Automatically save before commands like :next and :make
 set hidden		" Hide buffers when they are abandoned
-set mouse=nv		" Enable mouse usage (all modes)
+"set mouse=ni		" Enable mouse usage (all modes)
 set hlsearch
 set cursorline
 set foldmethod=indent

@@ -1,8 +1,7 @@
-# Homebrew GitHub API Token to avoid queueing for searches and downloads.
-export HOMEBREW_GITHUB_API_TOKEN=f76751918c3405fa57424e08b1d4c48edc7db419
-
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/mysql/bin:$PATH"
+if [[ $(uname -s) = "Darwin" ]];
+then
+    source ~/.bash/bashrc_macos
+fi
 
 # Avoid ValueError: undefined locale UTF-8
 export LANG="it_IT.UTF-8"
@@ -36,7 +35,6 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 # some more aliases
-alias ls="gls --color"
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
@@ -47,7 +45,7 @@ alias vi="vim"
 alias grep="grep --color"
 alias fucking=sudo
 alias fuckin=sudo
-alias s="/Users/nicola/.bash/status.sh"
+alias s="~/.bash/status.sh"
 alias ..="cd .."
 
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
@@ -62,36 +60,7 @@ test -f ~/.git-completion.bash && . $_
 # SSH autocomplete
 complete -o default -o nospace -W "$(grep -i -e '^host ' ~/.ssh/config | awk '{print substr($0, index($0,$2))}' ORS=' ')" ssh scp sftp
 
-export ANDROID_HOME=${HOME}/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-
-if [ -f ~/.config/exercism/exercism_completion.bash ]; then
-  . ~/.config/exercism/exercism_completion.bash
-fi
-
-fuck () {
-    TF_HISTORY=$(fc -ln -10)
-    TF_CMD=$(
-        TF_ALIAS=fuck
-        TF_SHELL_ALIASES=$(alias)
-        TF_HISTORY=$TF_HISTORY
-        PYTHONIOENCODING=utf-8
-        thefuck THEFUCK_ARGUMENT_PLACEHOLDER $*
-    ) && eval $TF_CMD;
-    test -n "$TF_CMD" && print -s $TF_CMD
-}
-
 eval "$(thefuck --alias)"
-
-export CC=/usr/local/bin/gcc-4.9
-alias gcc=/usr/local/bin/colorgcc
-
-# MacPorts Installer addition on 2017-04-26_at_23:01:02: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-export MANPATH="/opt/local/share/man:$MANPATH"
-
-PATH="/usr/local/bin:/opt/local/bin:/opt/local/sbin:/sw/bin:/sw/sbin:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/nicola/Library/Android/sdk/tools:/Users/nicola/Library/Android/sdk/platform-tools"
 
 set completion-ignore-case On
 
@@ -106,5 +75,3 @@ _pip_completion()
 }
 complete -o default -F _pip_completion pip
 # pip bash completion end
-
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
