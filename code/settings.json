@@ -1,0 +1,22 @@
+{
+  // Inserire le impostazioni in questo file per sovrascrivere quelle predefinite
+  "terminal.integrated.shell.osx": "/bin/bash",
+  "terminal.integrated.shell.linux": "/bin/bash",
+  "vim.disableAnnoyingNeovimMessage": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "workbench.panel.location": "bottom",
+  "editor.find.autoFindInSelection": true,
+  "editor.formatOnSave": true,
+  "prettier.semi": false,
+  "prettier.eslintIntegration": true,
+  "prettier.trailingComma": "none",
+  "html.format.indentInnerHtml": true,
+  "html.format.extraLiners": "",
+  "workbench.startupEditor": "newUntitledFile",
+  "C_Cpp.clang_format_style": "WebKit",
+  "window.zoomLevel": 0,
+  "eslint.options": {
+    "no-console": "off",
+    "no-debugger": "error"
+  }
+}
