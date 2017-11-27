@@ -33,6 +33,7 @@ Plugin 'elzr/vim-json'
 Plugin 'mileszs/ack.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'ntpeters/vim-better-whitespace'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -226,3 +227,7 @@ let g:vim_markdown_no_extensions_in_markdown = 1
 
 " To ensure that editorconfig works well with Tim Pope's fugitive
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+" Vim better whitespace conf
+autocmd FileType py,html,sh autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
+

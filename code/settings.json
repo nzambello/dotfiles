@@ -1,5 +1,7 @@
 {
   // Inserire le impostazioni in questo file per sovrascrivere quelle predefinite
+  "editor.fontFamily": "DejaVu Sans Code",
+  "editor.fontLigatures": true,
   "terminal.integrated.shell.osx": "/bin/bash",
   "terminal.integrated.shell.linux": "/bin/bash",
   "vim.disableAnnoyingNeovimMessage": true,

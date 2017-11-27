@@ -7,8 +7,6 @@
 mkdir -p bash
 cp ~/.bashrc bash/
 cp ~/.bash_profile bash/
-cp ~/.inputrc bash/
-cp ~/.git-completion.bash bash/
 cp -r ~/.bash bash/
 echo "Copied bash config"
 
@@ -19,8 +17,6 @@ echo "Copied bash config"
 
 mkdir -p vim
 cp ~/.vimrc vim/
-cp -r ~/.vim/plugin vim/
-cp -r ~/.vim/colors vim/
 echo "Copied vim config"
 
 
