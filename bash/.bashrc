@@ -47,6 +47,7 @@ alias fucking=sudo
 alias fuckin=sudo
 alias s="~/.bash/status.sh"
 alias ..="cd .."
+alias coka="ssh coka -t 'cd homeraid/zambello; source .bashrc; bash -l'"
 
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
