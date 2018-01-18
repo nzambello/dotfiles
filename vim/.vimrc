@@ -106,8 +106,9 @@ autocmd BufNewFile,BufRead *.load set ft=htmldjango
 
 " Set whitespace managing for every filetype, overriding standard
 " Configure vim to be PEP8 compliant when editing Python code
-autocmd FileType python,python.django setlocal ts=4 sts=4 sw=4 expandtab cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType xml,htmldjango,javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType xml,htmldjango,python,python.django setlocal ts=4 sts=4 sw=4 expandtab
+" cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType makefile setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd FileType tex setlocal wm=3
 
@@ -171,7 +172,7 @@ let g:NERDCommentEmptyLines = 0
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-autocmd BufRead,BufReadPost,BufNewFile *.pt set filetype=xml
+autocmd BufRead,BufReadPost,BufNewFile *.pt set ft=xml ts=4 sts=4 sw=4
 
 " Configure ultisnips
 let g:UltiSnipsExpandTrigger="<leader><tab>"
@@ -230,4 +231,3 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " Vim better whitespace conf
 autocmd FileType py,html,sh autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
-
