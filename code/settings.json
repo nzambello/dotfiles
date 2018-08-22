@@ -8,7 +8,7 @@
   "vsicons.dontShowNewVersionMessage": true,
   "workbench.panel.location": "bottom",
   "editor.find.autoFindInSelection": true,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "prettier.semi": false,
   "prettier.eslintIntegration": true,
   "prettier.trailingComma": "none",
@@ -21,7 +21,8 @@
   "window.zoomLevel": 0,
   "eslint.options": {
     "no-console": "off",
-    "no-debugger": "off"
+    "no-debugger": "off",
+    "trailingComma": "none"
   },
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false,
@@ -30,12 +31,23 @@
     "suppressGitVersionWarning": false,
     "suppressLineUncommittedWarning": false,
     "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true,
     "suppressUpdateNotice": true,
     "suppressWelcomeNotice": true
   },
   "[scss]": {
     "editor.tabSize": 4,
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
   },
-  "javascript.validate.enable": false
+  "[scss]": {
+    "editor.tabSize": 2,
+    "prettier.tabWidth": 2,
+  },
+  "javascript.validate.enable": false,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "gitlens.keymap": "chorded",
+  "git.autofetch": true,
+  "cssModules.camelCase": true,
+  "gitlens.historyExplorer.enabled": true
 }
