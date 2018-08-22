@@ -46,8 +46,10 @@ alias grep="grep --color"
 alias fucking=sudo
 alias fuckin=sudo
 alias s="~/.bash/status.sh"
+alias updatesrc="~/.bash/updateSrc.sh"
 alias ..="cd .."
 alias coka="ssh coka -t 'cd homeraid/zambello; source .bashrc; bash -l'"
+alias g="gatsby"
 
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
@@ -76,3 +78,11 @@ _pip_completion()
 }
 complete -o default -F _pip_completion pip
 # pip bash completion end
+
+alias cdr='. /Users/nicola/.bash/cdr/cdr.sh'
+alias arp_scan='. /Users/nicola/.bash/arp_scan.sh'
+
+a ()
+{
+    ag --depth 9999 "$@"
+}

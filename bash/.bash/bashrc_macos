@@ -5,6 +5,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
 
 alias ls="gls --color"
+alias mvim="open -a MacVim"
 
 export ANDROID_HOME=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
@@ -15,7 +16,7 @@ if [ -f ~/.config/exercism/exercism_completion.bash ]; then
 fi
 
 export CC=/usr/local/bin/gcc-4.9
-alias gcc=/usr/local/bin/colorgcc
+#alias gcc=/usr/local/bin/colorgcc
 
 # MacPorts Installer addition on 2017-04-26_at_23:01:02: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
@@ -24,3 +25,6 @@ export MANPATH="/opt/local/share/man:$MANPATH"
 PATH="/usr/local/bin:/opt/local/bin:/opt/local/sbin:/sw/bin:/sw/sbin:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/nicola/Library/Android/sdk/tools:/Users/nicola/Library/Android/sdk/platform-tools"
 
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+export PATH=/usr/local/bin:$PATH
