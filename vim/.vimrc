@@ -19,7 +19,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'crusoexia/vim-javascript-lib'
 Plugin 'crusoexia/vim-monokai'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-repeat'
@@ -101,7 +101,7 @@ filetype on
 " Filetype indentation
 filetype plugin indent on
 
-autocmd BufNewFile,BufRead *.zcml set ft=xml
+autocmd BufNewFile,BufRead *.zcml set ft=html
 autocmd BufNewFile,BufRead *.load set ft=htmldjango
 
 " Set whitespace managing for every filetype, overriding standard
