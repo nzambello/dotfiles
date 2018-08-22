@@ -1,5 +1,5 @@
 {
-  // Inserire le impostazioni in questo file per sovrascrivere quelle predefinite
+  "workbench.welcome.enabled": false,
   "editor.fontFamily": "DejaVu Sans Code",
   "editor.fontLigatures": true,
   "terminal.integrated.shell.osx": "/bin/bash",
@@ -10,9 +10,8 @@
   "editor.find.autoFindInSelection": true,
   "editor.formatOnSave": true,
   "prettier.semi": false,
-  "prettier.eslintIntegration": true,
   "prettier.trailingComma": "none",
-  "prettier.stylelintIntegration": true,
+  "prettier.printWidth": "auto",
   "prettier.singleQuote": true,
   "html.format.indentInnerHtml": true,
   "html.format.extraLiners": "",
@@ -36,13 +35,31 @@
     "suppressUpdateNotice": true,
     "suppressWelcomeNotice": true
   },
-  "[scss]": {
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
+  },
+  "files.associations": {
+    "*.zcml": "plaintext"
+  },
+  "[xml]": {
+    "editor.formatOnSave": false,
     "editor.tabSize": 4,
-    "prettier.tabWidth": 4,
+    "prettier.tabWidth": 4
+  },
+  "[html]": {
+    "editor.formatOnSave": false,
+    "editor.tabSize": 4,
+    "prettier.tabWidth": 4
   },
   "[scss]": {
-    "editor.tabSize": 2,
-    "prettier.tabWidth": 2,
+    "editor.tabSize": 4,
+    "prettier.tabWidth": 4
+  },
+  "[css]": {
+    "editor.tabSize": 4,
+    "prettier.tabWidth": 4
   },
   "javascript.validate.enable": false,
   "diffEditor.ignoreTrimWhitespace": true,
