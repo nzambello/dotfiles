@@ -66,5 +66,8 @@
   "gitlens.keymap": "chorded",
   "git.autofetch": true,
   "cssModules.camelCase": true,
-  "gitlens.historyExplorer.enabled": true
+  "gitlens.historyExplorer.enabled": true,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "eslint.packageManager": "yarn",
+  "typescript.updateImportsOnFileMove.enabled": "never"
 }

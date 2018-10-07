@@ -34,6 +34,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -231,3 +232,5 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " Vim better whitespace conf
 autocmd FileType py,html,sh autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
+
+autocmd BufNewFile,BufRead *.ts set ft=js

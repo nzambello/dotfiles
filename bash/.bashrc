@@ -86,3 +86,8 @@ a ()
 {
     ag --depth 9999 "$@"
 }
+
+
+eval "$(jump shell bash)"
+
+alias fetch="git fetch && git pull"
