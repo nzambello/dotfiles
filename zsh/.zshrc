@@ -12,15 +12,15 @@ export ZSH="/Users/nicola/.oh-my-zsh"
 POWERLEVEL9K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
+# Powerlevel9k left prompt config
+
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time)
 
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='white'
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='238'
-
-POWERLEVEL9K_TIME_BACKGROUND='blue'
-POWERLEVEL9K_TIME_ICON=''
-
+POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
 POWERLEVEL9K_VCS_HIDE_TAGS='true'
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='236'
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='119'
@@ -30,9 +30,13 @@ POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='236'
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='196'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='236'
 
-POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
+# Powerlevel9k right prompt config
+
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv root_indicator time)
+
+POWERLEVEL9K_STATUS_CROSS='true'
+POWERLEVEL9K_TIME_BACKGROUND='blue'
+POWERLEVEL9K_TIME_ICON=''
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -90,6 +94,14 @@ plugins=(
   git npm yarn osx thefuck
 )
 
+
+# Disable plugin verification for superuser
+# It had conflicts in permissions because
+# those are loaded from my user home
+[[ ${(%):-%#} = \# ]] && ZSH_DISABLE_COMPFIX=true
+
+
+# Loads oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -97,14 +109,10 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=it_IT.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -132,6 +140,7 @@ alias vi="vim"
 alias grep="grep --color"
 alias fucking=sudo
 alias fuckin=sudo
+alias su='sudo --shell /bin/zsh'
 alias s="~/.bash/status.sh"
 alias updatesrc="~/.bash/updateSrc.sh"
 alias ..="cd .."
