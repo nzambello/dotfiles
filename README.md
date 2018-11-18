@@ -5,3 +5,4 @@ My personalized config files for:
 - vim
 - bash
 - vscode
+- zsh
