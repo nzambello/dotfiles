@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ##########
 #  Bash  #
@@ -28,3 +28,14 @@ echo "Copied vim config"
 mkdir -p code
 cp ~/Library/Application\ Support/Code/User/settings.json code/
 echo "Copied vscode config"
+
+
+
+#########
+#  ZSH  #
+#########
+
+mkdir -p zsh/.oh-my-zsh-themes
+cp ~/.zshrc zsh/
+cp ~/.oh-my-zsh/themes/agnoster.zsh-theme zsh/.oh-my-zsh-themes/
+echo "Copied zsh config"
