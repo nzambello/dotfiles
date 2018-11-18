@@ -36,7 +36,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.35916060209274292
   },
-  "Rows" : 30,
+  "Rows" : 45,
   "Default Bookmark" : "No",
   "Cursor Guide Color" : {
     "Red Component" : 0.70213186740875244,
@@ -84,7 +84,7 @@
     "Green Component" : "0.8353",
     "Red Component" : "0.7098"
   },
-  "Columns" : 100,
+  "Columns" : 150,
   "Idle Code" : 0,
   "Only The Default BG Color Uses Transparency" : true,
   "Ansi 13 Color" : {
