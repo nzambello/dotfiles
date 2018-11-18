@@ -29,12 +29,14 @@ Plugin 'flowtype/vim-flow'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'w0rp/ale'
 Plugin 'othree/html5.vim'
-Plugin 'elzr/vim-json'
 Plugin 'mileszs/ack.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'ervandew/supertab'
+Plugin 'prettier/vim-prettier'
+Plugin 'Yggdroot/indentLine'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -102,7 +104,7 @@ filetype on
 " Filetype indentation
 filetype plugin indent on
 
-autocmd BufNewFile,BufRead *.zcml set ft=html
+autocmd BufNewFile,BufRead *.zcml set ft=xml
 autocmd BufNewFile,BufRead *.load set ft=htmldjango
 
 " Set whitespace managing for every filetype, overriding standard
@@ -173,7 +175,12 @@ let g:NERDCommentEmptyLines = 0
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-autocmd BufRead,BufReadPost,BufNewFile *.pt set ft=xml ts=4 sts=4 sw=4
+autocmd BufRead,BufReadPost,BufNewFile *.pt set ft=xml
+autocmd FileType pt set sw=4 ts=4 expandtab
+autocmd FileType xml set sw=4 ts=4 expandtab
+autocmd FileType html set sw=4 ts=4 expandtab
+
+set backupcopy=yes
 
 " Configure ultisnips
 let g:UltiSnipsExpandTrigger="<leader><tab>"
@@ -186,18 +193,18 @@ let g:ale_linters['c'] = ['gcc', 'cppcheck']
 let g:ale_linters['Dockerfile'] = ['hadolint']
 let g:ale_linters['css'] = ['stylelint']
 let g:ale_linters['javascript'] = ['eslint', 'flow']
-let g:ale_linters['python'] = ['flake8']
+let g:ale_linters['python'] = ['flake8', 'isort']
 let g:ale_linters['sass'] = ['stylelint']
 let g:ale_linters['scss'] = ['stylelint']
 let g:ale_linters['sh'] = ['shellcheck']
 let g:ale_linters['xml'] = ['xmllint']
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_fixers['python'] = ['autopep8']
+let g:ale_fixers['python'] = ['autopep8', 'isort', 'yapf']
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
 "let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma'
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
 let g:ale_sign_error = '💩' " could use emoji
