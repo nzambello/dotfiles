@@ -16,10 +16,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
+Plugin 'elzr/vim-json'
 Plugin 'mxw/vim-jsx'
 Plugin 'crusoexia/vim-javascript-lib'
 Plugin 'crusoexia/vim-monokai'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-repeat'
@@ -29,14 +29,14 @@ Plugin 'flowtype/vim-flow'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'w0rp/ale'
 Plugin 'othree/html5.vim'
-Plugin 'mileszs/ack.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'ervandew/supertab'
 Plugin 'prettier/vim-prettier'
 Plugin 'Yggdroot/indentLine'
-Plugin 'jiangmiao/auto-pairs'
+Plugin 'rstacruz/vim-closer'
+Plugin 'rstacruz/vim-hyperstyle'
+Plugin 'lifepillar/vim-mucomplete'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -182,11 +182,6 @@ autocmd FileType html set sw=4 ts=4 expandtab
 
 set backupcopy=yes
 
-" Configure ultisnips
-let g:UltiSnipsExpandTrigger="<leader><tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
 " Configure ALE
 let g:ale_linters = {}
 let g:ale_linters['c'] = ['gcc', 'cppcheck']
@@ -224,7 +219,9 @@ let g:flow#showquickfix = 0
 let g:flow#enable = 0 " This is handled by ale
 let g:flow#omnifunc = 1
 
-" let g:vim_json_syntax_conceal = 0
+" Configs for elzr/vim-json
+let g:vim_json_syntax_conceal = 0
+let g:indentLine_concealcursor = ""
 
 " Use ag in :Ack if available, otherwise falls back to ack
 if executable('ag')
@@ -241,3 +238,5 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 autocmd FileType py,html,sh autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
 
 autocmd BufNewFile,BufRead *.ts set ft=js
+
+set conceallevel=0

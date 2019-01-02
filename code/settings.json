@@ -69,5 +69,7 @@
   "gitlens.historyExplorer.enabled": true,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "eslint.packageManager": "yarn",
-  "typescript.updateImportsOnFileMove.enabled": "never"
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true
 }
