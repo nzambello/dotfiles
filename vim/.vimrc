@@ -220,7 +220,9 @@ let g:flow#enable = 0 " This is handled by ale
 let g:flow#omnifunc = 1
 
 " Configs for elzr/vim-json
+" to keep your conceal setting
 let g:vim_json_syntax_conceal = 0
+let g:indentLine_setConceal = 0
 let g:indentLine_concealcursor = ""
 
 " Use ag in :Ack if available, otherwise falls back to ack
@@ -239,4 +241,7 @@ autocmd FileType py,html,sh autocmd BufEnter <buffer> EnableStripWhitespaceOnSav
 
 autocmd BufNewFile,BufRead *.ts set ft=js
 
-set conceallevel=0
+" Prettier plugin config
+" let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+
