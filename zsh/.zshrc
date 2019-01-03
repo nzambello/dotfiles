@@ -34,6 +34,8 @@ POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='236'
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv root_indicator time)
 
 POWERLEVEL9K_STATUS_CROSS='true'
+POWERLEVEL9K_VIRTUALENV_BACKGROUND='white'
+POWERLEVEL9K_VIRTUALENV_FOREGROUND='238'
 POWERLEVEL9K_TIME_BACKGROUND='blue'
 POWERLEVEL9K_TIME_FOREGROUND='white'
 POWERLEVEL9K_TIME_ICON=''
@@ -68,7 +70,7 @@ HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
