@@ -94,7 +94,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git npm yarn osx thefuck
+  git yarn osx thefuck
 )
 
 
@@ -109,7 +109,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:/usr/local/share/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=it_IT.UTF-8
@@ -157,3 +157,5 @@ eval "$(thefuck --alias)"
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
+
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
