@@ -71,5 +71,6 @@
   "eslint.packageManager": "yarn",
   "typescript.updateImportsOnFileMove.enabled": "never",
   "gitlens.views.fileHistory.enabled": true,
-  "gitlens.views.lineHistory.enabled": true
+  "gitlens.views.lineHistory.enabled": true,
+  "python.formatting.provider": "yapf"
 }

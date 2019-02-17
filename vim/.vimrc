@@ -35,8 +35,9 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'prettier/vim-prettier'
 Plugin 'Yggdroot/indentLine'
 Plugin 'rstacruz/vim-closer'
-Plugin 'rstacruz/vim-hyperstyle'
+" Plugin 'rstacruz/vim-hyperstyle'
 Plugin 'lifepillar/vim-mucomplete'
+Plugin 'chaoren/vim-wordmotion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
