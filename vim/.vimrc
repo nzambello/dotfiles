@@ -210,7 +210,7 @@ let g:ale_statusline_format = ['X %d', '? %d', '']
 " %s is the error or warning message
 let g:ale_echo_msg_format = '%linter% says: %s'
 " Enable completion where available.
-let g:ale_completion_enabled = 1
+" let g:ale_completion_enabled = 1
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
@@ -238,7 +238,7 @@ let g:vim_markdown_no_extensions_in_markdown = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " Vim better whitespace conf
-autocmd FileType py,html,sh autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
+autocmd FileType scss,js,py,html,sh autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
 
 autocmd BufNewFile,BufRead *.ts set ft=js
 
