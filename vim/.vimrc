@@ -38,7 +38,6 @@ Plugin 'rstacruz/vim-closer'
 " Plugin 'rstacruz/vim-hyperstyle'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'chaoren/vim-wordmotion'
-Plugin 'qxxxb/vim-searchhi'
 Plugin 'mhinz/vim-grepper'
 
 " All of your Plugins must be added before the following line
@@ -191,14 +190,14 @@ let g:ale_linters['c'] = ['gcc', 'cppcheck']
 let g:ale_linters['Dockerfile'] = ['hadolint']
 let g:ale_linters['css'] = ['stylelint']
 let g:ale_linters['javascript'] = ['eslint', 'flow']
-let g:ale_linters['python'] = ['flake8', 'isort']
+let g:ale_linters['python'] = ['bandit', 'isort']
 let g:ale_linters['sass'] = ['stylelint']
 let g:ale_linters['scss'] = ['stylelint']
 let g:ale_linters['sh'] = ['shellcheck']
 let g:ale_linters['xml'] = ['xmllint']
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_fixers['python'] = ['autopep8', 'isort', 'yapf']
+let g:ale_fixers['python'] = ['black', 'isort']
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
 "let g:ale_fix_on_save = 1
@@ -247,33 +246,5 @@ autocmd BufNewFile,BufRead *.ts set ft=js
 " Prettier plugin config
 " let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
-
-nmap n <Plug>(searchhi-n)
-nmap N <Plug>(searchhi-N)
-nmap * <Plug>(searchhi-*)
-nmap g* <Plug>(searchhi-g*)
-nmap # <Plug>(searchhi-#)
-nmap g# <Plug>(searchhi-g#)
-nmap gd <Plug>(searchhi-gd)
-nmap gD <Plug>(searchhi-gD)
-
-vmap n <Plug>(searchhi-v-n)
-vmap N <Plug>(searchhi-v-N)
-vmap * <Plug>(searchhi-v-*)
-vmap g* <Plug>(searchhi-v-g*)
-vmap # <Plug>(searchhi-v-#)
-vmap g# <Plug>(searchhi-v-g#)
-vmap gd <Plug>(searchhi-v-gd)
-vmap gD <Plug>(searchhi-v-gD)
-
-nmap <silent> <C-L> <Plug>(searchhi-clear-all)
-vmap <silent> <C-L> <Plug>(searchhi-v-clear-all)
-
-
-highlight CurrentSearch
-    \ cterm=reverse,bold ctermfg=108 ctermbg=235
-    \ gui=reverse,bold guifg=#8ec07c guibg=#282828
-
-highlight link SearchCursor WarningMsg
 
 nnoremap <leader>g :Grepper -tool ack<cr>
