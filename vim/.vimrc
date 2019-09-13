@@ -39,6 +39,7 @@ Plugin 'rstacruz/vim-closer'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'chaoren/vim-wordmotion'
 Plugin 'mhinz/vim-grepper'
+Plugin 'zxqfl/tabnine-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

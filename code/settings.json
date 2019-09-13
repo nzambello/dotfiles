@@ -10,7 +10,7 @@
   "editor.formatOnSave": true,
   "prettier.semi": false,
   "prettier.trailingComma": "none",
-  "prettier.printWidth": "auto",
+  "prettier.printWidth": 120,
   "prettier.singleQuote": true,
   "html.format.indentInnerHtml": true,
   "html.format.extraLiners": "",
@@ -72,5 +72,44 @@
   "typescript.updateImportsOnFileMove.enabled": "never",
   "gitlens.views.fileHistory.enabled": true,
   "gitlens.views.lineHistory.enabled": true,
-  "python.formatting.provider": "yapf"
+  "python.formatting.provider": "black",
+  "gitlens.views.repositories.location": "gitlens",
+  "gitlens.views.fileHistory.location": "gitlens",
+  "gitlens.views.lineHistory.location": "gitlens",
+  "gitlens.views.compare.location": "gitlens",
+  "gitlens.views.search.location": "gitlens",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "nasc-touchbar.addCursorBelow": false,
+  "nasc-touchbar.blockComment": true,
+  "nasc-touchbar.commentLine": true,
+  "nasc-touchbar.goToDefinition": false,
+  "nasc-touchbar.indent": true,
+  "nasc-touchbar.jumpToBracket": true,
+  "nasc-touchbar.rename": false,
+  "auto-close-tag.fullMode": true,
+  "path-intellisense.extensionOnImport": true,
+  "path-intellisense.showHiddenFiles": true,
+  "prettier.eslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  "python.autoComplete.addBrackets": true,
+  "python.formatting.blackPath": "/usr/local/bin/black",
+  "python.linting.banditEnabled": true,
+  "python.linting.banditPath": "/usr/local/bin/bandit",
+  "python.linting.pylintEnabled": false,
+  "python.pythonPath": "/usr/local/bin/python",
+  "python.pipenvPath": "/usr/local/bin/pipenv",
+  "scss.lint.duplicateProperties": "warning",
+  "scss.lint.important": "warning",
+  "nasc-touchbar.togglePanel": false,
+  "html.autoClosingTags": false,
+  "svn.enableProposedApi": "argument",
+  "files.exclude": {
+    "**/*.pyc": true,
+    "**/*.swp": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

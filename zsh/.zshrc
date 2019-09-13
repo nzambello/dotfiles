@@ -31,7 +31,7 @@ POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='236'
 
 # Powerlevel9k right prompt config
 
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv root_indicator time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm virtualenv root_indicator time)
 
 POWERLEVEL9K_STATUS_CROSS='true'
 POWERLEVEL9K_VIRTUALENV_BACKGROUND='white'
@@ -39,6 +39,9 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND='238'
 POWERLEVEL9K_TIME_BACKGROUND='blue'
 POWERLEVEL9K_TIME_FOREGROUND='white'
 POWERLEVEL9K_TIME_ICON=''
+
+TOUCHBAR_GIT_ENABLED=true
+YARN_ENABLED=true
 
 
 # Set list of themes to pick from when loading at random
@@ -94,7 +97,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git yarn osx thefuck
+  git yarn osx thefuck zsh-iterm-touchbar
 )
 
 
@@ -113,6 +116,7 @@ export MANPATH="/usr/local/man:/usr/local/share/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=it_IT.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
@@ -140,7 +144,7 @@ alias cd..="cd .."
 alias lll='ll'
 alias gti="git"
 alias vi="vim"
-alias grep="grep --color"
+alias grep="ggrep --color"
 alias fucking=sudo
 alias fuckin=sudo
 alias su='sudo --shell /bin/zsh'
@@ -151,6 +155,7 @@ alias coka="ssh coka -t 'cd homeraid/zambello; source .bashrc; bash -l'"
 alias g="gatsby"
 alias fetch="git fetch && git pull"
 alias yolo='git commit -m "$(curl -s https://whatthecommit.com/index.txt)"'
+alias plone="bin/instance fg"
 
 eval "$(thefuck --alias)"
 
@@ -158,6 +163,24 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [xport PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+# nvm stuff
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH=$PATH:$HOME/.local/bin/
+export PATH=$PATH:$HOME/Library/Python/2.7/bin
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"
+export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+# Homebrew should cleanup old versions on upgrade/reinstall in order to avoid deleting old python versions
+export HOMEBREW_NO_INSTALL_CLEANUP=1
