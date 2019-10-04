@@ -13,6 +13,7 @@
     logg = log --graph --decorate
     contrib = shortlog -sn
     d = difftool
+	yolo = commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"
 [core]
     editor = vim
 [diff]
