@@ -1,0 +1,25 @@
+[user]
+	name = Nicola Zambello
+	email = nzambello@protonmail.com
+[alias]
+    co = checkout
+    ca = commit -am
+    st = status
+    aa = add -u
+    ci = commit
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    log = log --graph --decorate
+    logg = log --graph --decorate
+    contrib = shortlog -sn
+    d = difftool
+[core]
+    editor = vim
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[http]
+[https]
+[http]
+[https]
