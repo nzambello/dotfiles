@@ -40,7 +40,10 @@
     "statusBar.debuggingBackground": "#005f5f"
   },
   "files.associations": {
-    "*.zcml": "xml"
+    "*.zcml": "xml",
+    "*.config": "less",
+    "*.overrides": "less",
+    "*.variables": "less"
   },
   "[xml]": {
     "editor.formatOnSave": false,

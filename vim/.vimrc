@@ -15,6 +15,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'mxw/vim-jsx'
@@ -39,7 +40,11 @@ Plugin 'rstacruz/vim-closer'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'chaoren/vim-wordmotion'
 Plugin 'mhinz/vim-grepper'
-Plugin 'zxqfl/tabnine-vim'
+" Plugin 'zxqfl/tabnine-vim'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'mhinz/vim-startify'
+Plugin 'wavded/vim-stylus'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -249,3 +254,9 @@ autocmd BufNewFile,BufRead *.ts set ft=js
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 nnoremap <leader>g :Grepper -tool ack<cr>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
