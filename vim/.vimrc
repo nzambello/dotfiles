@@ -45,6 +45,7 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'mhinz/vim-startify'
 Plugin 'wavded/vim-stylus'
+Plugin 'severin-lemaignan/vim-minimap'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -260,3 +261,7 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Mappings for vim-minimap
+let g:minimap_toggle='<leader>gt'
+autocmd VimEnter * Minimap
