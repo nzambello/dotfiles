@@ -14,8 +14,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'mxw/vim-jsx'
@@ -36,12 +34,8 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'prettier/vim-prettier'
 Plugin 'Yggdroot/indentLine'
 Plugin 'rstacruz/vim-closer'
-" Plugin 'rstacruz/vim-hyperstyle'
 Plugin 'lifepillar/vim-mucomplete'
-Plugin 'chaoren/vim-wordmotion'
 Plugin 'mhinz/vim-grepper'
-" Plugin 'zxqfl/tabnine-vim'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'mhinz/vim-startify'
 Plugin 'wavded/vim-stylus'
@@ -73,8 +67,8 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-map <C-t> :NERDTreeToggle<CR>
-let g:NERDTreeShowHidden=1
+" map <C-t> :NERDTreeToggle<CR>
+" let g:NERDTreeShowHidden=1
 
 " Let backspace be more friendly
 let g:jsx_ext_required = 0
@@ -264,4 +258,14 @@ nmap ga <Plug>(EasyAlign)
 
 " Mappings for vim-minimap
 let g:minimap_toggle='<leader>gt'
-autocmd VimEnter * Minimap
+
+" Netrw cnfigs
+let g:netrw_winsize = 25
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 2
+let g:netrw_altv = 1
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
+noremap <leader>t :Vexplore<cr>
