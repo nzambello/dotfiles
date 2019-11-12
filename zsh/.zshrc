@@ -97,7 +97,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git yarn osx thefuck zsh-iterm-touchbar
+  git yarn osx thefuck zsh-iterm-touchbar emoji
 )
 
 
@@ -154,7 +154,7 @@ alias ..="cd .."
 alias coka="ssh coka -t 'cd homeraid/zambello; source .bashrc; bash -l'"
 alias g="gatsby"
 alias fetch="git fetch && git pull"
-alias yolo='git commit -m "$(curl -s https://whatthecommit.com/index.txt)"'
+alias yolo='git commit -m "$(curl -s https://whatthecommit.com/index.txt)" $(random_emoji)'
 alias plone="bin/instance fg"
 
 eval "$(thefuck --alias)"
@@ -181,6 +181,3 @@ export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-
-# Homebrew should cleanup old versions on upgrade/reinstall in order to avoid deleting old python versions
-export HOMEBREW_NO_INSTALL_CLEANUP=1

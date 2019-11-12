@@ -31,7 +31,7 @@ Plugin 'othree/html5.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'prettier/vim-prettier'
+Plugin 'prettier/vim-prettier', { 'branch': 'release/1.x' }
 Plugin 'Yggdroot/indentLine'
 Plugin 'rstacruz/vim-closer'
 Plugin 'lifepillar/vim-mucomplete'
@@ -40,6 +40,9 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'mhinz/vim-startify'
 Plugin 'wavded/vim-stylus'
 Plugin 'severin-lemaignan/vim-minimap'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'shougo/deol.nvim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -197,7 +200,7 @@ let g:ale_linters['scss'] = ['stylelint']
 let g:ale_linters['sh'] = ['shellcheck']
 let g:ale_linters['xml'] = ['xmllint']
 let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['javascript'] = ['prettier', 'prettier-eslint', 'eslint']
 let g:ale_fixers['python'] = ['black', 'isort']
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
