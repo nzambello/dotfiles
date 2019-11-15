@@ -36,8 +36,9 @@ echo "Copied vscode config"
 #########
 
 mkdir -p zsh/.oh-my-zsh-themes
+mkdir -p scripts/
 cp ~/.zshrc zsh/
-cp ~/.oh-my-zsh/themes/agnoster.zsh-theme zsh/.oh-my-zsh-themes/
+cp -r ~/scripts/ scripts/
 echo "Copied zsh config"
 
 

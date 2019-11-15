@@ -42,7 +42,6 @@ Plugin 'wavded/vim-stylus'
 Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'shougo/deol.nvim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -272,4 +271,7 @@ let g:netrw_alto = 1
 "   autocmd!
 "   autocmd VimEnter * :Vexplore
 " augroup END
-noremap <leader>t :Vexplore<cr>
+" noremap <leader>t :Vexplore<cr>
+
+" :terminal
+noremap <leader>t :vertical terminal<cr>
