@@ -22,7 +22,7 @@ do
     if [[ -n $file ]];
     then
         haschanges=$( grep -C 3 "Nothing changed yet" "$file" | grep "unreleased" -c )
-        if [[ $haschanges -gt 0 ]];
+        if [[ $haschanges -eq 0 ]];
         then
             echo -e "> ${RED}${dir}${RESET}"
         fi
