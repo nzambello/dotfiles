@@ -150,6 +150,7 @@ alias fuckin=sudo
 alias su='sudo --shell /bin/zsh'
 alias s="~/scripts/status.sh"
 alias updatesrc="~/scripts/updateSrc.sh"
+alias checkchanges="~/scripts/check_changes.sh"
 alias ..="cd .."
 alias coka="ssh coka -t 'cd homeraid/zambello; source .bashrc; bash -l'"
 alias g="gatsby"
