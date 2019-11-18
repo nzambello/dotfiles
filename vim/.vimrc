@@ -43,6 +43,7 @@ Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'joshdick/onedark.vim'
+Plugin 'sheerun/vim-polyglot'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -62,7 +63,10 @@ filetype plugin indent on    " required
 set laststatus=2
 set t_Co=256
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'dark'
+
+" onedark.vim => Place onedark.vim/autoload/airline/themes/onedark.vim in your ~/.vim/autoload/airline/themes/
+let g:airline_theme = 'onedark'
+
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 
