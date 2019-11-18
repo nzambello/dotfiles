@@ -42,6 +42,7 @@ Plugin 'wavded/vim-stylus'
 Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'joshdick/onedark.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -90,6 +91,10 @@ endif
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
+
+let g:enable_bold_font = 1
+let g:enable_italic_font = 1
+let g:hybrid_transparent_background = 1
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -144,7 +149,8 @@ set number
 
 set backspace=indent,eol,start
 
-colorscheme monokai
+" colorscheme monokai
+colorscheme onedark
 
 " Enable folding
 autocmd FileType python,xml,html,htmldjango,python.django,javascript,css set foldmethod=indent
