@@ -125,7 +125,7 @@ autocmd BufNewFile,BufRead *.load set ft=htmldjango
 " Configure vim to be PEP8 compliant when editing Python code
 autocmd FileType xml,htmldjango,python,python.django setlocal ts=4 sts=4 sw=4 expandtab
 " cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript,js,jsx,ts setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType makefile setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd FileType tex setlocal wm=3
 
