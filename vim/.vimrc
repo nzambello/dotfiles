@@ -44,6 +44,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'joshdick/onedark.vim'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'chaoren/vim-wordmotion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -285,3 +286,4 @@ let g:netrw_alto = 1
 
 " :terminal
 noremap <leader>t :vertical terminal<cr>
+noremap <leader>n :NERDTree<cr>

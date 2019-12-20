@@ -94,8 +94,6 @@
   "auto-close-tag.fullMode": true,
   "path-intellisense.extensionOnImport": true,
   "path-intellisense.showHiddenFiles": true,
-  "prettier.eslintIntegration": true,
-  "prettier.stylelintIntegration": true,
   "python.autoComplete.addBrackets": true,
   "python.formatting.blackPath": "/usr/local/bin/black",
   "python.linting.banditEnabled": true,
