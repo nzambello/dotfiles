@@ -257,6 +257,9 @@ autocmd FileType scss,js,py,html,sh autocmd BufEnter <buffer> EnableStripWhitesp
 
 autocmd BufNewFile,BufRead *.ts set ft=js
 
+autocmd BufNewFile,BufRead *.overrides set ft=less
+autocmd BufNewFile,BufRead *.variables set ft=less
+
 " Prettier plugin config
 " let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
@@ -286,4 +289,5 @@ let g:netrw_alto = 1
 
 " :terminal
 noremap <leader>t :vertical terminal<cr>
+
 noremap <leader>n :NERDTree<cr>

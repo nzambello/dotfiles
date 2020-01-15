@@ -1,6 +1,7 @@
 [user]
-	name = Nicola Zambello
+	name = nzambello
 	email = nzambello@protonmail.com
+	fullname = Nicola Zambello
 [alias]
     co = checkout
     ca = commit -am
@@ -15,6 +16,8 @@
     d = difftool
 	yolo = commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"
 	lg = log --format='%h %C(cyan)%al %C(yellow)%s'
+	wc = whatchanged
+	contrib = shortlog -ns
 [core]
     editor = vim
 [diff]
