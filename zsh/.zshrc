@@ -156,7 +156,8 @@ alias coka="ssh coka -t 'cd homeraid/zambello; source .bashrc; bash -l'"
 alias g="gatsby"
 alias fetch="git fetch && git pull"
 alias yolo='git commit -m "$(curl -s https://whatthecommit.com/index.txt)" $(random_emoji)'
-alias plone="bin/instance fg"
+alias up="git fetch && git pull"
+alias renv="~/scripts/renv.sh"
 
 eval "$(thefuck --alias)"
 
