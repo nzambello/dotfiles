@@ -158,6 +158,7 @@ alias fetch="git fetch && git pull"
 alias yolo='git commit -m "$(curl -s https://whatthecommit.com/index.txt)" $(random_emoji)'
 alias up="git fetch && git pull"
 alias renv="~/scripts/renv.sh"
+alias renv3="~/scripts/renv3.sh"
 
 eval "$(thefuck --alias)"
 
@@ -175,6 +176,8 @@ export PATH=$PATH:$HOME/.local/bin/
 export PATH=$PATH:$HOME/Library/Python/2.7/bin
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
 export LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"

@@ -17,7 +17,6 @@
 	yolo = commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"
 	lg = log --format='%h %C(cyan)%al %C(yellow)%s'
 	wc = whatchanged
-	contrib = shortlog -ns
 [core]
     editor = vim
 [diff]
