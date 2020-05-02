@@ -155,10 +155,11 @@ alias ..="cd .."
 alias coka="ssh coka -t 'cd homeraid/zambello; source .bashrc; bash -l'"
 alias g="gatsby"
 alias fetch="git fetch && git pull"
-alias yolo='git commit -m "$(curl -s https://whatthecommit.com/index.txt)" $(random_emoji)'
+alias yolo='git commit -m "$(curl -s https://whatthecommit.com/index.txt) $(random_emoji)"'
 alias up="git fetch && git pull"
 alias renv="~/scripts/renv.sh"
 alias renv3="~/scripts/renv3.sh"
+alias isay="~/scripts/isay.sh"
 
 eval "$(thefuck --alias)"
 
@@ -186,3 +187,9 @@ export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+source /Users/nicola/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+echo -e "\n$(node /Users/nicola/workspace/rcr-stats/index.js)\n"
+source ~/.github.sh
+

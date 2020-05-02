@@ -25,6 +25,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'flowtype/vim-flow'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'w0rp/ale'
 Plugin 'othree/html5.vim'
@@ -225,7 +226,7 @@ let g:ale_statusline_format = ['X %d', '? %d', '']
 " %s is the error or warning message
 let g:ale_echo_msg_format = '%linter% says: %s'
 " Enable completion where available.
-" let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 1
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>

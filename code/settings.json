@@ -2,7 +2,7 @@
   "workbench.welcome.enabled": false,
   "editor.fontFamily": "DejaVu Sans Code",
   "editor.fontLigatures": true,
-  "terminal.integrated.shell.osx": "/bin/bash",
+  "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.shell.linux": "/bin/bash",
   "vim.disableAnnoyingNeovimMessage": true,
   "workbench.panel.location": "bottom",
@@ -112,5 +112,10 @@
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "terminal.integrated.fontFamily": "DejaVuSansMono Nerd Font Mono",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "debug.node.autoAttach": "on"
 }
