@@ -1,66 +1,42 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sheerun/vim-polyglot'
+Plug 'crusoexia/vim-monokai'
+Plug 'scrooloose/nerdcommenter'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'flowtype/vim-flow'
+Plug 'leafgarland/typescript-vim'
+Plug 'Valloric/MatchTagAlways'
+Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'ap/vim-css-color'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'Yggdroot/indentLine'
+Plug 'rstacruz/vim-closer'
+Plug 'lifepillar/vim-mucomplete'
+Plug 'mhinz/vim-grepper'
+Plug 'junegunn/vim-easy-align'
+Plug 'mhinz/vim-startify'
+Plug 'wavded/vim-stylus'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'joshdick/onedark.vim'
+Plug 'chaoren/vim-wordmotion'
+Plug 'ctrlpvim/ctrlp.vim'
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'pangloss/vim-javascript'
-Plugin 'elzr/vim-json'
-Plugin 'mxw/vim-jsx'
-Plugin 'crusoexia/vim-javascript-lib'
-Plugin 'crusoexia/vim-monokai'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'flowtype/vim-flow'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'w0rp/ale'
-Plugin 'othree/html5.vim'
-Plugin 'ap/vim-css-color'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'prettier/vim-prettier', { 'branch': 'release/1.x' }
-Plugin 'Yggdroot/indentLine'
-Plugin 'rstacruz/vim-closer'
-Plugin 'lifepillar/vim-mucomplete'
-Plugin 'mhinz/vim-grepper'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'mhinz/vim-startify'
-Plugin 'wavded/vim-stylus'
-Plugin 'severin-lemaignan/vim-minimap'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'joshdick/onedark.vim'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'chaoren/vim-wordmotion'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
 
 set laststatus=2
 set t_Co=256
@@ -226,7 +202,9 @@ let g:ale_statusline_format = ['X %d', '? %d', '']
 " %s is the error or warning message
 let g:ale_echo_msg_format = '%linter% says: %s'
 " Enable completion where available.
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
+let g:ale_completion_tsserver_autoimport = 1
+set omnifunc=ale#completion#OmniFunc
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
@@ -236,11 +214,27 @@ let g:flow#showquickfix = 0
 let g:flow#enable = 0 " This is handled by ale
 let g:flow#omnifunc = 1
 
-" Configs for elzr/vim-json
-" to keep your conceal setting
-let g:vim_json_syntax_conceal = 0
-let g:indentLine_setConceal = 0
-let g:indentLine_concealcursor = ""
+" CoC extensions
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-python',
+  \ ]
+nnoremap <silent> K :call CocAction('doHover')<CR>
+function! ShowDocIfNoDiagnostic(timer_id)
+  if (coc#util#has_float() == 0)
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
+
+function! s:show_hover_doc()
+  call timer_start(300, 'ShowDocIfNoDiagnostic')
+endfunction
+
+autocmd CursorHoldI * :call <SID>show_hover_doc()
+autocmd CursorHold * :call <SID>show_hover_doc()
 
 " Use ag in :Ack if available, otherwise falls back to ack
 if executable('ag')
@@ -288,7 +282,15 @@ let g:netrw_alto = 1
 " augroup END
 " noremap <leader>t :Vexplore<cr>
 
+" https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim#highlighting-for-large-files
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
 " :terminal
 noremap <leader>t :vertical terminal<cr>
 
 noremap <leader>n :NERDTree<cr>
+
+" ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
