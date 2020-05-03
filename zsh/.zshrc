@@ -186,10 +186,3 @@ export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-
-source /Users/nicola/Library/Preferences/org.dystroy.broot/launcher/bash/br
-
-echo -e "\n$(node /Users/nicola/workspace/rcr-stats/index.js)\n"
-source ~/.github.sh
-
