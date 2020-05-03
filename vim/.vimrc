@@ -78,7 +78,6 @@ Plug 'severin-lemaignan/vim-minimap'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
 
-
 call plug#end()
 
 
