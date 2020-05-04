@@ -26,6 +26,10 @@ set nocompatible
 " \ t               Open a new vertical buffer with default terminal
 " \ T               Open a new horizontal buffer with default terminal
 " ctrl+p            Open ctrlp buffer for fuzzy find
+" g d               CoC: go to definition
+" g y               CoC: go to type definition
+" g i               CoC: go to implementation
+" g r               CoC: go to references
 "
 
 
@@ -132,6 +136,9 @@ augroup END " }
 
 " Show partial commands in the last line of the screen
 set showcmd
+
+" Give more space for displaying messages.
+set cmdheight=2
 
 " Better command-line completion
 set wildmenu
@@ -337,21 +344,25 @@ let g:coc_global_extensions = [
   \ ]
 
 " mappings and tricks for hover popup
-" https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim#tool-tip-documentation-and-diagnostics
-nnoremap <silent> K :call CocAction('doHover')<CR>
-function! ShowDocIfNoDiagnostic(timer_id)
-  if (coc#util#has_float() == 0)
-    silent call CocActionAsync('doHover')
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
   endif
 endfunction
 
-function! s:show_hover_doc()
-  call timer_start(300, 'ShowDocIfNoDiagnostic')
-endfunction
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-autocmd CursorHoldI * :call <SID>show_hover_doc()
-autocmd CursorHold * :call <SID>show_hover_doc()
-
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
 "------------------------------------------------------------
