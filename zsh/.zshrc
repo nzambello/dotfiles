@@ -43,6 +43,13 @@ POWERLEVEL9K_TIME_ICON=''
 TOUCHBAR_GIT_ENABLED=true
 YARN_ENABLED=true
 
+# Magic Enter plugin
+# This plugin makes your enter key magical, by binding commonly used commands to it.
+# To use it, add magic-enter to the plugins array in your zshrc file.
+# You can set the commands to be run in your .zshrc, before the line containing plugins.
+# If no command is specified in a git directory, git status is executed; in other directories, ls.
+MAGIC_ENTER_GIT_COMMAND='git status -u .'
+MAGIC_ENTER_OTHER_COMMAND='ls -lahF .'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -97,7 +104,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git yarn osx thefuck zsh-iterm-touchbar emoji
+  git yarn osx thefuck zsh-iterm-touchbar emoji magic-enter zsh-syntax-highlighting pipenv virtualenv git-auto-fetch
 )
 
 
@@ -185,4 +192,6 @@ export LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"
 export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+source ~/.github.sh
 

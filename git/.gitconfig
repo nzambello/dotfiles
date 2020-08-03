@@ -27,3 +27,7 @@
 [https]
 [http]
 [https]
+[pull]
+	rebase = false
+[icdiff]
+	options = --line-numbers

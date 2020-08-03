@@ -42,6 +42,7 @@ call plug#begin('~/.vim/plugged')
 
 " Theming and colors
 Plug 'joshdick/onedark.vim'
+" Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-css-color'
@@ -68,6 +69,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Valloric/MatchTagAlways'
 Plug 'rstacruz/vim-closer'
 Plug 'scrooloose/nerdcommenter'
+Plug 'alvan/vim-closetag'
 
 " Vim mappings and motions
 Plug 'tpope/vim-repeat'
@@ -137,9 +139,6 @@ augroup END " }
 " Show partial commands in the last line of the screen
 set showcmd
 
-" Give more space for displaying messages.
-set cmdheight=2
-
 " Better command-line completion
 set wildmenu
 
@@ -183,6 +182,7 @@ set tabstop=4 shiftwidth=4 expandtab
 
 " syntax color scheme
 colorscheme onedark
+" colorscheme codedark
 
 " autocompletion with ctrl+space
 inoremap <c-space> <c-n>
@@ -196,7 +196,7 @@ inoremap <Nul> <c-n>
 autocmd BufNewFile,BufRead *.zcml set ft=xml
 autocmd BufNewFile,BufRead *.overrides set ft=less
 autocmd BufNewFile,BufRead *.variables set ft=less
-autocmd BufNewFile,BufRead *.pt set ft=xml
+autocmd BufNewFile,BufRead *.pt set ft=html syntax=xml
 
 " Set whitespace managing for every filetype, overriding standard
 autocmd FileType xml,htmldjango,python,python.django setlocal ts=4 sts=4 sw=4 expandtab
@@ -215,6 +215,8 @@ autocmd FileType python,python.django set colorcolumn=80
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
+" To get correct comment highlighting (from CoC)
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 
 "------------------------------------------------------------
@@ -233,6 +235,7 @@ let g:airline_powerline_fonts = 1
 
 " onedark.vim => Place onedark.vim/autoload/airline/themes/onedark.vim in your ~/.vim/autoload/airline/themes/
 let g:airline_theme = 'onedark'
+" let g:airline_theme = 'codedark'
 
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
@@ -289,13 +292,14 @@ let g:ale_linters = {}
 let g:ale_linters['c'] = ['gcc', 'cppcheck']
 let g:ale_linters['css'] = ['stylelint']
 let g:ale_linters['javascript'] = ['eslint', 'flow']
-let g:ale_linters['python'] = ['bandit', 'isort']
+let g:ale_linters['python'] = ['bandit', 'black', 'isort']
 let g:ale_linters['sass'] = ['stylelint']
 let g:ale_linters['scss'] = ['stylelint']
 let g:ale_linters['sh'] = ['shellcheck']
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier', 'prettier-eslint', 'eslint']
 let g:ale_fixers['python'] = ['black', 'isort']
+let g:ale_fixers['css'] = ['prettier', 'stylelint']
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
 "let g:ale_fix_on_save = 1
@@ -439,3 +443,31 @@ noremap <leader>T :terminal<cr>
 " Set mappings
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+
+
+"------------------------------------------------------------
+" vim-closetag
+"
+" Ref: alvan/vim-closetag
+"
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.pt,*.zcml,*.jsx'
+
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.pt, *.zcml'
+
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 0
+
+" Disables auto-close if not in a "valid" region (based on filetype)
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
