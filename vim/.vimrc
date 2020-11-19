@@ -51,6 +51,7 @@ Plug 'ap/vim-css-color'
 Plug 'sheerun/vim-polyglot'
 Plug 'leafgarland/typescript-vim'
 Plug 'flowtype/vim-flow'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Completion, linting and formatting
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -300,10 +301,11 @@ let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier', 'prettier-eslint', 'eslint']
 let g:ale_fixers['python'] = ['black', 'isort']
 let g:ale_fixers['css'] = ['prettier', 'stylelint']
+let g:ale_fixers['scss'] = ['prettier', 'stylelint']
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
 "let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma'
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma --spaces 2'
 
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
@@ -345,6 +347,7 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-python',
+  \ 'coc-tabnine',
   \ ]
 
 " mappings and tricks for hover popup
