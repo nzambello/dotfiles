@@ -168,6 +168,7 @@ alias up="git fetch && git pull"
 alias renv="~/scripts/renv.sh"
 alias renv3="~/scripts/renv3.sh"
 alias isay="~/scripts/isay.sh"
+alias udvt="~/scripts/update-dvt.sh"
 
 eval "$(thefuck --alias)"
 
@@ -195,4 +196,5 @@ export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 source ~/.github.sh
+export KUBECONFIG=$HOME/workspace/kubeconfig.yml
 

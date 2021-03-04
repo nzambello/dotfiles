@@ -117,5 +117,12 @@
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "debug.node.autoAttach": "on"
+  "debug.node.autoAttach": "on",
+  "tabnine.experimentalAutoImports": true,
+  "workbench.colorTheme": "One Dark Theme",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "latex-workshop.view.pdf.viewer": "tab",
+  "workbench.editorAssociations": []
 }
