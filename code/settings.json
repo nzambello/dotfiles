@@ -16,7 +16,6 @@
   "html.format.extraLiners": "",
   "workbench.startupEditor": "newUntitledFile",
   "C_Cpp.clang_format_style": "WebKit",
-  "window.zoomLevel": 0,
   "eslint.options": {
     "no-console": "off",
     "no-debugger": "off",
@@ -58,7 +57,8 @@
   },
   "[scss]": {
     "editor.tabSize": 4,
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[css]": {
     "editor.tabSize": 4,
@@ -124,5 +124,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "latex-workshop.view.pdf.viewer": "tab",
-  "workbench.editorAssociations": []
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ]
 }
