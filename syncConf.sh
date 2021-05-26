@@ -50,3 +50,15 @@ echo "Copied zsh config"
 mkdir -p git
 cp ~/.gitconfig git/
 echo "Copied git config"
+
+
+##########
+#  ONI2  #
+##########
+
+mkdir -p oni2
+cp -r ~/.config/oni2/configuration.json oni2/
+cp -r ~/.config/oni2/keybindings.json oni2/
+echo "# Extensions\n" > oni2/extensions.md
+ls -1 ~/.config/oni2/extensions >> oni2/extensions.md
+echo "Copied oni2 config"
