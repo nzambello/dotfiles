@@ -48,8 +48,6 @@ alias fuckin=sudo
 alias s="~/.bash/status.sh"
 alias updatesrc="~/.bash/updateSrc.sh"
 alias ..="cd .."
-alias coka="ssh coka -t 'cd homeraid/zambello; source .bashrc; bash -l'"
-alias g="gatsby"
 
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
@@ -79,23 +77,13 @@ _pip_completion()
 complete -o default -F _pip_completion pip
 # pip bash completion end
 
-alias cdr='. /Users/nicola/.bash/cdr/cdr.sh'
-alias arp_scan='. /Users/nicola/.bash/arp_scan.sh'
-
 a ()
 {
     ag --depth 9999 "$@"
 }
 
 
-eval "$(jump shell bash)"
-
 alias fetch="git fetch && git pull"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-source /Users/nicola/Library/Preferences/org.dystroy.broot/launcher/bash/brsource "$HOME/.cargo/env"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
