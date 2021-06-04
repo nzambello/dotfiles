@@ -2,6 +2,7 @@
   "tabnine.experimentalAutoImports": true,
   "ui.zoom": 1.0,
   "restructuredtext.confPath": "",
+  "restructuredtext.languageServer.disabled": true,
   "workbench.colorTheme": "One Dark Pro",
   "editor.detectIndentation": true,
   "editor.fontFamily": "DejaVu Sans Code",
@@ -24,7 +25,7 @@
   "editor.zenMode.hideTabs": true,
   "editor.zenMode.singleFile": true,
   "editor.lightBulb.enabled": true,
-  "files.exclude": ["_esy", ".git"],
+  "files.exclude": [ "_esy", ".git" ],
   "files.useExperimentalFileWatcher": true,
   "terminal.integrated.fontFamily": "DejaVuSansMono Nerd Font Mono",
   "terminal.integrated.shell.osx": "bash",
@@ -35,7 +36,9 @@
   "workbench.statusBar.visible": true,
   "workbench.tree.indent": 2,
   "oni.inactiveWindowOpacity": 0.8,
-  "vim.useSystemClipboard": ["yank"],
+  "vim.useSystemClipboard": [ "yank" ],
   "vim.leader": "\\",
+  "yarn.runInTerminal": false,
+  "yarn.dontHideOutputOnSuccess": true,
   "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }
 }

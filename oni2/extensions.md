@@ -10,6 +10,7 @@ dsznajder.es7-react-js-snippets-3.1.1
 eamodio.gitlens-11.4.1
 esbenp.prettier-vscode-6.4.0
 formulahendry.auto-close-tag-0.5.10
+gamunu.vscode-yarn-1.7.1
 jock.svg-1.4.1
 lextudio.restructuredtext-147.0.0
 ms-vscode.vscode-typescript-tslint-plugin-1.2.2

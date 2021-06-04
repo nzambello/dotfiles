@@ -171,6 +171,7 @@ alias renv="~/scripts/renv.sh"
 alias renv3="~/scripts/renv3.sh"
 alias isay="~/scripts/isay.sh"
 alias udvt="~/scripts/update-dvt.sh"
+alias ag="ag --depth=9999"
 
 eval "$(thefuck --alias)"
 
