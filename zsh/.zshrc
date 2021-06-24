@@ -45,14 +45,6 @@ POWERLEVEL9K_TIME_ICON=''
 TOUCHBAR_GIT_ENABLED=true
 YARN_ENABLED=true
 
-# Magic Enter plugin
-# This plugin makes your enter key magical, by binding commonly used commands to it.
-# To use it, add magic-enter to the plugins array in your zshrc file.
-# You can set the commands to be run in your .zshrc, before the line containing plugins.
-# If no command is specified in a git directory, git status is executed; in other directories, ls.
-MAGIC_ENTER_GIT_COMMAND='git status'
-MAGIC_ENTER_OTHER_COMMAND='ls -lahF .'
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -106,7 +98,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git yarn osx thefuck zsh-iterm-touchbar emoji magic-enter zsh-syntax-highlighting virtualenv git-auto-fetch
+  git yarn osx thefuck zsh-iterm-touchbar emoji zsh-syntax-highlighting virtualenv git-auto-fetch
 )
 
 
@@ -128,7 +120,7 @@ export LANG=it_IT.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -152,7 +144,8 @@ alias l='ls -CF'
 alias cd..="cd .."
 alias lll='ll'
 alias gti="git"
-alias vi="vim"
+alias vi="nvim"
+alias vim="nvim"
 alias oni="oni2"
 alias grep="ggrep --color"
 alias fucking=sudo

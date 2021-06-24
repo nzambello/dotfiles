@@ -56,6 +56,7 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 " Completion, linting and formatting
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Yggdroot/indentLine'
@@ -81,9 +82,11 @@ Plug 'chaoren/vim-wordmotion'
 " Explore utilities
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
+Plug 'scrooloose/nerdtree-project-plugin'
 
 call plug#end()
 
