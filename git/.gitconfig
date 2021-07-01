@@ -13,6 +13,7 @@
 	yolo = commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"
 	lg = log --format='%h %C(cyan)%al %C(yellow)%s'
 	wc = whatchanged
+    conflicts = diff --name-only --diff-filter=U
 [core]
     editor = vim
 [diff]
