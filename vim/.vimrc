@@ -46,6 +46,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-css-color'
+Plug 'ryanoasis/vim-devicons'
 
 " Language, syntax and env support
 Plug 'sheerun/vim-polyglot'
@@ -55,7 +56,6 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Completion, linting and formatting
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'w0rp/ale'
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -83,10 +83,11 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdtree'
-Plug 'severin-lemaignan/vim-minimap'
+" Plug 'severin-lemaignan/vim-minimap'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
-Plug 'scrooloose/nerdtree-project-plugin'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -254,9 +255,21 @@ endif
 " NerdTree config
 "
 " Ref: scrooloose/nerdtree
-noremap <leader>n :NERDTree<cr>
+noremap <leader>n :NERDTreeToggle<cr>
+noremap <leader>ns :NERDTreFinde<cr>
 let g:NERDTreeShowHidden=1
+let NerdTreeIgnore=['\.node_modules$']
 
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 
 "------------------------------------------------------------
@@ -294,17 +307,17 @@ let g:NERDTrimTrailingWhitespace = 1
 
 let g:ale_linters = {}
 let g:ale_linters['c'] = ['gcc', 'cppcheck']
-let g:ale_linters['css'] = ['stylelint']
+let g:ale_linters['css'] = ['stylelint', 'prettier']
 let g:ale_linters['javascript'] = ['eslint', 'flow']
 let g:ale_linters['python'] = ['bandit', 'black', 'isort']
-let g:ale_linters['sass'] = ['stylelint']
-let g:ale_linters['scss'] = ['stylelint']
+let g:ale_linters['sass'] = ['stylelint', 'prettier']
+let g:ale_linters['scss'] = ['stylelint', 'prettier']
 let g:ale_linters['sh'] = ['shellcheck']
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier', 'prettier-eslint', 'eslint']
-let g:ale_fixers['python'] = ['black', 'isort']
-let g:ale_fixers['css'] = ['prettier', 'stylelint']
-let g:ale_fixers['scss'] = ['prettier', 'stylelint']
+let g:ale_fixers['python'] = ['black']
+let g:ale_fixers['css'] = ['prettier']
+let g:ale_fixers['scss'] = ['prettier']
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
 "let g:ale_fix_on_save = 1
@@ -428,7 +441,7 @@ nmap ga <Plug>(EasyAlign)
 " Ref: severin-lemaignan/vim-minimap
 "
 " Mappings for vim-minimap
-let g:minimap_toggle='<leader>gt'
+" let g:minimap_toggle='<leader>gt'
 
 
 
