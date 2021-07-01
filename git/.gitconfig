@@ -7,7 +7,7 @@
     unstage = reset HEAD --
     last = log -1 HEAD
     log = log --graph --decorate
-    logg = log --graph --decorate
+    logg = log --graph --decorate --shortstat
     contrib = shortlog -sn
     d = difftool
 	yolo = commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"
