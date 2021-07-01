@@ -124,10 +124,13 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "latex-workshop.view.pdf.viewer": "tab",
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ]
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "editor.tabSize": 4,
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": true,
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off"
 }
