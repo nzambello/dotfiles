@@ -9,8 +9,8 @@ dbaeumer.vscode-eslint-2.1.8
 dsznajder.es7-react-js-snippets-3.1.1
 eamodio.gitlens-11.4.1
 esbenp.prettier-vscode-6.4.0
-gamunu.vscode-yarn-1.7.1
 jock.svg-1.4.1
+kamikillerto.vscode-colorize-0.8.17
 lextudio.restructuredtext-147.0.0
 ms-vscode.vscode-typescript-tslint-plugin-1.2.2
 stylelint.vscode-stylelint-0.86.0
