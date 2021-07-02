@@ -45,6 +45,14 @@ POWERLEVEL9K_TIME_ICON=''
 TOUCHBAR_GIT_ENABLED=true
 YARN_ENABLED=true
 
+# Magic Enter plugin
+# This plugin makes your enter key magical, by binding commonly used commands to it.
+# To use it, add magic-enter to the plugins array in your zshrc file.
+# You can set the commands to be run in your .zshrc, before the line containing plugins.
+# If no command is specified in a git directory, git status is executed; in other directories, ls.
+# MAGIC_ENTER_GIT_COMMAND='git status -u .'
+# MAGIC_ENTER_OTHER_COMMAND='ls -lahF .'
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -144,7 +152,7 @@ alias l='ls -CF'
 alias cd..="cd .."
 alias lll='ll'
 alias gti="git"
-alias vi="nvim"
+alias vi="vim"
 alias vim="nvim"
 alias oni="oni2"
 alias grep="ggrep --color"
@@ -163,7 +171,6 @@ alias up="git fetch && git pull"
 alias renv="~/scripts/renv.sh"
 alias renv3="~/scripts/renv3.sh"
 alias isay="~/scripts/isay.sh"
-alias udvt="~/scripts/update-dvt.sh"
 alias ag="ag --depth=9999"
 
 eval "$(thefuck --alias)"
@@ -187,7 +194,5 @@ export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 source ~/.github.sh
-export KUBECONFIG=$HOME/workspace/kubeconfig.yml
-
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"

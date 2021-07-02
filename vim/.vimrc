@@ -272,6 +272,7 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 
+
 "------------------------------------------------------------
 " NerdCommenter config
 "
@@ -315,9 +316,9 @@ let g:ale_linters['scss'] = ['stylelint', 'prettier']
 let g:ale_linters['sh'] = ['shellcheck']
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier', 'prettier-eslint', 'eslint']
-let g:ale_fixers['python'] = ['black']
-let g:ale_fixers['css'] = ['prettier']
-let g:ale_fixers['scss'] = ['prettier']
+let g:ale_fixers['python'] = ['black', 'isort']
+let g:ale_fixers['css'] = ['prettier', 'stylelint']
+let g:ale_fixers['scss'] = ['prettier', 'stylelint']
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
 "let g:ale_fix_on_save = 1

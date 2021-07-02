@@ -1,5 +1,6 @@
 {
   "tabnine.experimentalAutoImports": true,
+  "restructuredtext.languageServer.disabled": true,
   "ui.zoom": 1.0,
   "restructuredtext.confPath": "",
   "restructuredtext.languageServer.disabled": true,
@@ -32,6 +33,7 @@
   "workbench.activityBar.visible": true,
   "workbench.editor.showTabs": true,
   "workbench.iconTheme": "vs-seti",
+  "workbench.sideBar.location": "left",
   "workbench.sideBar.visible": true,
   "workbench.statusBar.visible": true,
   "workbench.tree.indent": 2,

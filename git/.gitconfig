@@ -20,10 +20,6 @@
     tool = vimdiff
 [difftool]
     prompt = false
-[http]
-[https]
-[http]
-[https]
 [pull]
 	rebase = false
 [icdiff]
