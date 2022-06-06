@@ -1,7 +1,13 @@
 [user]
-	name = nzambello
-	email = nzambello@protonmail.com
-	fullname = Nicola Zambello
+    name = nzambello
+    email = nzambello@protonmail.com
+    fullname = Nicola Zambello
+    signinkey = 6D9E4DC42A512404
+
+[github]
+    user = nzambello
+    name = Nicola Zambello
+
 [alias]
     co = checkout
     unstage = reset HEAD --
@@ -10,19 +16,46 @@
     logg = log --graph --decorate --shortstat
     contrib = shortlog -sn
     d = difftool
-	yolo = commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"
-	lg = log --format='%h %C(cyan)%al %C(yellow)%s'
-	wc = whatchanged
+    difflog = log -p --stat
+    sha = log -n 1 --pretty=format:'%H'
+    yolo = commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"
+    lg = log --format='%h %C(cyan)%al %C(yellow)%s'
+    wc = whatchanged
     conflicts = diff --name-only --diff-filter=U
+
 [core]
     editor = vim
+
 [diff]
     tool = vimdiff
+
 [difftool]
     prompt = false
+
 [pull]
-	rebase = false
+    rebase = false
+
 [icdiff]
-	options = --line-numbers
+    options = --line-numbers
+
 [init]
-	defaultBranch = main
+    defaultBranch = main
+
+[filter "lfs"]
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+
+[commit]
+    gpgsign = true
+
+[credential]
+    helper = cache --timeout=360000
+
+[advice]
+    statusHints = false
+
+[grep]
+    lineNumber = true
+

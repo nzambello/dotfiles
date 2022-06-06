@@ -1,5 +1,8 @@
 export TERM="xterm-256color"
 
+# Load brew env
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -33,7 +36,7 @@ POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='236'
 
 # Powerlevel9k right prompt config
 
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm virtualenv root_indicator time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv root_indicator time)
 
 POWERLEVEL9K_STATUS_CROSS='true'
 POWERLEVEL9K_VIRTUALENV_BACKGROUND='white'
@@ -106,7 +109,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git yarn osx thefuck zsh-iterm-touchbar emoji zsh-syntax-highlighting virtualenv git-auto-fetch
+  git yarn macos thefuck zsh-iterm-touchbar emoji zsh-syntax-highlighting virtualenv git-auto-fetch
 )
 
 
@@ -152,8 +155,6 @@ alias l='ls -CF'
 alias cd..="cd .."
 alias lll='ll'
 alias gti="git"
-alias vi="vim"
-alias vim="nvim"
 alias oni="oni2"
 alias grep="ggrep --color"
 alias fucking=sudo
@@ -185,12 +186,21 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
-export LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"
 export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 source ~/.github.sh
+
+export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+export PATH="/opt/homebrew/opt/python@3.8/bin:$PATH"
+export PATH="/usr/local/share/dotnet/x64:$PATH"
+export PATH="$PATH:/Users/nicola/.dotnet/tools"
+export GPG_TTY=$(tty)
+
+export PNPM_HOME="/Users/nicola/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"

@@ -6,7 +6,7 @@
   "terminal.integrated.shell.linux": "/bin/bash",
   "vim.disableAnnoyingNeovimMessage": true,
   "workbench.panel.location": "bottom",
-  "editor.find.autoFindInSelection": true,
+  "editor.find.autoFindInSelection": "never",
   "editor.formatOnSave": true,
   "prettier.semi": false,
   "prettier.trailingComma": "none",
@@ -62,7 +62,8 @@
   },
   "[css]": {
     "editor.tabSize": 4,
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
   "javascript.validate.enable": false,
   "diffEditor.ignoreTrimWhitespace": true,
@@ -119,7 +120,6 @@
   },
   "debug.node.autoAttach": "on",
   "tabnine.experimentalAutoImports": true,
-  "workbench.colorTheme": "One Dark Theme",
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -127,12 +127,41 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
-  "window.zoomLevel": 0,
   "editor.tabSize": 8,
   "editor.cursorStyle": "line",
   "editor.insertSpaces": false,
   "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
-  "editor.inlineSuggest.enabled": true
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": true
+  },
+  "python.defaultInterpreterPath": "/usr/local/bin/python",
+  "python.analysis.completeFunctionParens": true,
+  "editor.renderControlCharacters": true,
+  "workbench.colorTheme": "One Dark Theme",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "svg.preview.mode": "svg",
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "git.confirmSync": false,
+  "editor.guides.bracketPairs": true,
+  "editor.bracketPairColorization.enabled": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "telemetry.telemetryLevel": "off"
 }

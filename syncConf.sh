@@ -17,6 +17,7 @@ echo "Copied bash config"
 
 mkdir -p vim
 cp ~/.vimrc vim/
+cp ~/.config/nvim/init.vim vim/
 echo "Copied vim config"
 
 

@@ -22,7 +22,7 @@ set nocompatible
 " \ a p             ALE prev
 " K                 Show diagnostics or docs in popup
 " \ g               Grep files in CWD (asks for a pattern)
-" \ g t             Toggle minimap
+" \ m m             Toggle minimap
 " \ t               Open a new vertical buffer with default terminal
 " \ T               Open a new horizontal buffer with default terminal
 " ctrl+p            Open ctrlp buffer for fuzzy find
@@ -50,8 +50,9 @@ Plug 'ryanoasis/vim-devicons'
 
 " Language, syntax and env support
 Plug 'sheerun/vim-polyglot'
+Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
-Plug 'flowtype/vim-flow'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Completion, linting and formatting
@@ -61,6 +62,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'github/copilot.vim'
 
 " Git integration
 Plug 'tpope/vim-fugitive'
@@ -83,11 +85,13 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdtree'
-" Plug 'severin-lemaignan/vim-minimap'
+Plug 'severin-lemaignan/vim-minimap'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
@@ -192,6 +196,20 @@ colorscheme onedark
 " autocompletion with ctrl+space
 inoremap <c-space> <c-n>
 inoremap <Nul> <c-n>
+
+" GUI Font
+set guifont=DejaVu\ Sans\ Code
+
+" Saves the position of screen at exit
+autocmd BufWinLeave *.* mkview
+
+" Restores screen last position
+autocmd BufWinEnter *.* silent loadview
+
+
+" Set Node path
+" ref: https://github.com/github-community/community/discussions/13310
+let g:copilot_node_command = '/opt/homebrew/opt/node@16/bin/node'
 
 
 "------------------------------------------------------------
@@ -364,7 +382,6 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-python',
-  \ 'coc-tabnine',
   \ ]
 
 " mappings and tricks for hover popup
@@ -442,7 +459,7 @@ nmap ga <Plug>(EasyAlign)
 " Ref: severin-lemaignan/vim-minimap
 "
 " Mappings for vim-minimap
-" let g:minimap_toggle='<leader>gt'
+let g:minimap_toggle='<leader>mm'
 
 
 
@@ -463,6 +480,9 @@ noremap <leader>T :terminal<cr>
 " Set mappings
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" ignore .git and files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 
 

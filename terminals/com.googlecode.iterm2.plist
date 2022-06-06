@@ -376,7 +376,7 @@
 			<key>Columns</key>
 			<integer>150</integer>
 			<key>Command</key>
-			<string>/usr/local/bin/zsh</string>
+			<string>/opt/homebrew/bin/zsh</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1095,6 +1095,8 @@
 			<string>/Users/nicola</string>
 		</dict>
 	</array>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -1128,8 +1130,8 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
-	<key>PreventEscapeSequenceFromClearingHistory</key>
-	<false/>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>

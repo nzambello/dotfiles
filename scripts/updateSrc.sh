@@ -12,7 +12,8 @@ do
     then
         git fetch && git pull
     else
-        svn up
+        # svn up
+        echo "svn not installed"
     fi
 
     cd ..
