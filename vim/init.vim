@@ -33,6 +33,8 @@ Plug 'norcalli/nvim-colorizer.lua'
 " Completion, linting and formatting
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'folke/trouble.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'creativenull/diagnosticls-configs-nvim'
@@ -57,7 +59,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'David-Kunz/cmp-npm'
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
 " Code utilities
 Plug 'scrooloose/nerdcommenter'
@@ -163,6 +166,9 @@ set foldexpr=nvim_treesitter#foldexpr()
 " Display line numbers on the left
 set number
 
+" Mouse events
+set mouse=a
+
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
 
@@ -181,6 +187,9 @@ colorscheme onedark
 " autocompletion with ctrl+space
 inoremap <c-space> <c-n>
 inoremap <Nul> <c-n>
+
+" Switch active buffer (tab)
+noremap gt <cmd>bn<CR>
 
 " GUI Font
 set guifont=DejaVu\ Sans\ Code
@@ -208,6 +217,9 @@ set splitbelow
 set ttyfast
 set lazyredraw
 
+" completion
+set completeopt=menu,menuone,noselect
+
 
 "------------------------------------------------------------
 " File type config
@@ -222,7 +234,7 @@ autocmd BufNewFile,BufRead *.md,*.mdx,*.markdown set filetype=markdown
 
 " Set whitespace managing for every filetype, overriding standard
 autocmd FileType xml,htmldjango,python,python.django setlocal ts=4 sts=4 sw=4 expandtab
-autocmd FileType javascript,js,jsx,ts setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript,js,jsx,ts,tsx setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType makefile setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd FileType tex setlocal wm=3
 autocmd FileType pt set sw=4 ts=4 expandtab
@@ -240,12 +252,16 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 " To get correct comment highlighting (from CoC)
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
+" activate prettier for typescript
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+
+
 
 "------------------------------------------------------------
 " vim better whitespace
 "
 " Ref: ntpeters/vim-better-whitespace
-autocmd FileType scss,js,py,html,sh autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
+autocmd FileType css,less,scss,js,jsx,json,ts,tsx,py,html,sh autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
 
 
 "------------------------------------------------------------
@@ -367,7 +383,41 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " Ref: github/copilot.vim
 " Set Node path
 " ref: https://github.com/github-community/community/discussions/13310
-let g:copilot_node_command = '/opt/homebrew/opt/node@16/bin/node'
+" let g:copilot_node_command = '/opt/homebrew/opt/node@16/bin/node'
+
+
+"------------------------------------------------------------
+" Tabnine cmp
+"
+" Ref: https://github.com/tzachar/cmp-tabnine
+" local tabnine = require('cmp_tabnine.config')
+" tabnine:setup({
+"         max_lines = 1000;
+"         max_num_results = 20;
+"         sort = true;
+"         run_on_every_keystroke = true;
+"         snippet_placeholder = '..';
+"         ignored_file_types = { -- default is not to ignore
+"                 -- uncomment to ignore in lua:
+"                 -- lua = true
+"         };
+"         show_prediction_strength = false;
+" })
+lua << EOF
+local tabnine = require('cmp_tabnine.config')
+tabnine:setup({
+	max_lines = 1000;
+	max_num_results = 20;
+	sort = true;
+	run_on_every_keystroke = true;
+	snippet_placeholder = '..';
+	ignored_file_types = { -- default is not to ignore
+		-- uncomment to ignore in lua:
+		-- lua = true
+	};
+	show_prediction_strength = false;
+})
+EOF
 
 
 "------------------------------------------------------------
@@ -380,9 +430,76 @@ local util = require "lspconfig/util"
 require 'lspconfig'.tsserver.setup{
     on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+
+        local ts_utils = require("nvim-lsp-ts-utils")
+        ts_utils.setup({})
+        ts_utils.setup_client(client)
+
+        buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
+        buf_map(bufnr, "n", "gi", ":TSLspRenameFile<CR>")
+        buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
+        on_attach(client, bufnr)
     end,
     root_dir = util.root_pattern(".git", "tsconfig.json", "jsconfig.json"),
 }
+EOF
+
+lua << EOF
+local lspconfig = require("lspconfig")
+local null_ls = require("null-ls")
+local buf_map = function(bufnr, mode, lhs, rhs, opts)
+    vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
+        silent = true,
+    })
+end
+local on_attach = function(client, bufnr)
+    vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
+    vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
+    vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
+    vim.cmd("command! LspHover lua vim.lsp.buf.hover()")
+    vim.cmd("command! LspRename lua vim.lsp.buf.rename()")
+    vim.cmd("command! LspRefs lua vim.lsp.buf.references()")
+    vim.cmd("command! LspTypeDef lua vim.lsp.buf.type_definition()")
+    vim.cmd("command! LspImplementation lua vim.lsp.buf.implementation()")
+    vim.cmd("command! LspDiagPrev lua vim.diagnostic.goto_prev()")
+    vim.cmd("command! LspDiagNext lua vim.diagnostic.goto_next()")
+    vim.cmd("command! LspDiagLine lua vim.diagnostic.open_float()")
+    vim.cmd("command! LspSignatureHelp lua vim.lsp.buf.signature_help()")
+    buf_map(bufnr, "n", "gd", ":LspDef<CR>")
+    buf_map(bufnr, "n", "gr", ":LspRename<CR>")
+    buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>")
+    buf_map(bufnr, "n", "K", ":LspHover<CR>")
+    buf_map(bufnr, "n", "[a", ":LspDiagPrev<CR>")
+    buf_map(bufnr, "n", "]a", ":LspDiagNext<CR>")
+    buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>")
+    buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
+    buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
+    if client.resolved_capabilities.document_formatting then
+        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+    end
+end
+lspconfig.tsserver.setup({
+    on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+        local ts_utils = require("nvim-lsp-ts-utils")
+        ts_utils.setup({})
+        ts_utils.setup_client(client)
+        buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
+        buf_map(bufnr, "n", "gi", ":TSLspRenameFile<CR>")
+        buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
+        on_attach(client, bufnr)
+    end,
+})
+null_ls.setup({
+    sources = {
+        null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.code_actions.eslint,
+        null_ls.builtins.formatting.prettier,
+    },
+    on_attach = on_attach,
+})
 EOF
 
 lua << EOF
@@ -468,6 +585,8 @@ let g:dashboard_custom_footer = s:footer
 lua << EOF
 require'nvim-tree'.setup {
   open_on_setup_file = true,
+  open_on_setup = true,
+  open_on_tab = true,
   ignore_ft_on_setup  = { 'startify', 'dashboard' },
 }
 EOF
@@ -550,4 +669,90 @@ nmap ga <Plug>(EasyAlign)
 " Ref: folke/trouble.nvim
 lua << EOF
   require("trouble").setup()
+EOF
+
+
+"-------------------------------------------------------------
+" LSP installer + cmp
+"
+" Ref: williamboman/nvim-lsp-installer
+" Ref: hrsh7th/nvim-cmp
+lua << EOF
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.on_server_ready(function(server)
+    local opts = {
+      capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    }
+    server:setup(opts)
+end)
+EOF
+
+"-------------------------------------------------------------
+" cmp
+"
+" Ref: hrsh7th/nvim-cmp
+lua <<EOF
+  -- Setup nvim-cmp.
+  local cmp = require'cmp'
+
+  cmp.setup({
+    auto_select = false,
+    snippet = {
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body)
+      end,
+    },
+    mapping = {
+      ['<C-Space>'] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+      },
+      ['<Tab>'] = function(fallback)
+        if not cmp.select_next_item() then
+          if vim.bo.buftype ~= 'prompt' and has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end
+      end,
+      ['<S-Tab>'] = function(fallback)
+        if not cmp.select_prev_item() then
+          if vim.bo.buftype ~= 'prompt' and has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end
+      end,
+    },
+    sources = {
+      { name = 'nvim_lsp' },
+      { name = 'TabNine' },
+      { name = 'cmp_tabnine' },
+      -- For vsnip user.
+      -- { name = 'vsnip' },
+      -- For luasnip user.
+      { name = 'path' },
+      -- For ultisnips user.
+      -- { name = 'ultisnips' },
+      { name = 'luasnip' },
+      { name = 'buffer', keywork_length = 5 },
+      { name = 'npm', keyword_length = 4 },
+    },
+    formatting = {
+      -- format = require('lspkind').cmp_format {
+      --   with_text = true,
+      --   menu = {
+      --     buffer = "[buf]",
+      --     nvim_lsp = "[LSP]",
+      --     path = "[path]",
+      --     luasnip = "[snip]"
+      --   }
+      -- }
+    },
+    experimental = {
+      ghost_text = true
+    }
+  })
 EOF
