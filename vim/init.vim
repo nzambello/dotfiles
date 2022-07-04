@@ -59,8 +59,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'David-Kunz/cmp-npm'
-" Plug 'github/copilot.vim'
-Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+Plug 'github/copilot.vim'
 
 " Code utilities
 Plug 'scrooloose/nerdcommenter'
@@ -383,7 +382,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " Ref: github/copilot.vim
 " Set Node path
 " ref: https://github.com/github-community/community/discussions/13310
-" let g:copilot_node_command = '/opt/homebrew/opt/node@16/bin/node'
+let g:copilot_node_command = '/opt/homebrew/opt/node@16/bin/node'
 
 
 "------------------------------------------------------------
@@ -403,21 +402,21 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 "         };
 "         show_prediction_strength = false;
 " })
-lua << EOF
-local tabnine = require('cmp_tabnine.config')
-tabnine:setup({
-	max_lines = 1000;
-	max_num_results = 20;
-	sort = true;
-	run_on_every_keystroke = true;
-	snippet_placeholder = '..';
-	ignored_file_types = { -- default is not to ignore
-		-- uncomment to ignore in lua:
-		-- lua = true
-	};
-	show_prediction_strength = false;
-})
-EOF
+" lua << EOF
+" local tabnine = require('cmp_tabnine.config')
+" tabnine:setup({
+"         max_lines = 1000;
+"         max_num_results = 20;
+"         sort = true;
+"         run_on_every_keystroke = true;
+"         snippet_placeholder = '..';
+"         ignored_file_types = { -- default is not to ignore
+"                 -- uncomment to ignore in lua:
+"                 -- lua = true
+"         };
+"         show_prediction_strength = false;
+" })
+" EOF
 
 
 "------------------------------------------------------------
@@ -728,8 +727,8 @@ lua <<EOF
     },
     sources = {
       { name = 'nvim_lsp' },
-      { name = 'TabNine' },
-      { name = 'cmp_tabnine' },
+      -- { name = 'TabNine' },
+      -- { name = 'cmp_tabnine' },
       -- For vsnip user.
       -- { name = 'vsnip' },
       -- For luasnip user.
