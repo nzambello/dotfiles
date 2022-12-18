@@ -4,6 +4,10 @@
 <dict>
 	<key>AlternateMouseScroll</key>
 	<true/>
+	<key>ConvertDosNewlines</key>
+	<true/>
+	<key>ConvertUnicodePunctuation</key>
+	<false/>
 	<key>Default Bookmark Guid</key>
 	<string>388F0CA7-FB34-42BD-9537-392238392B05</string>
 	<key>DimBackgroundWindows</key>
@@ -12,6 +16,8 @@
 	<false/>
 	<key>EnableAPIServer</key>
 	<true/>
+	<key>EscapeShellCharsWithBackslash</key>
+	<false/>
 	<key>GlobalKeyMap</key>
 	<dict>
 		<key>0x19-0x60000</key>
@@ -1097,6 +1103,12 @@
 	</array>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
+	<key>PasteSpecialRegex</key>
+	<string></string>
+	<key>PasteSpecialSubstitution</key>
+	<string></string>
+	<key>PasteSpecialUseRegexSubstitution</key>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -1132,6 +1144,8 @@
 	</dict>
 	<key>Print In Black And White</key>
 	<true/>
+	<key>RemoveControlCodes</key>
+	<true/>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
@@ -1148,6 +1162,8 @@
 	<true/>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>1</integer>
+	<key>TabTransform</key>
+	<integer>0</integer>
 	<key>ToolbeltTools</key>
 	<array>
 		<string>Profiles</string>

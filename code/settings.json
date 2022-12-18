@@ -63,7 +63,7 @@
   "[css]": {
     "editor.tabSize": 4,
     "prettier.tabWidth": 4,
-    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    "editor.defaultFormatter": "vscode.css-language-features"
   },
   "javascript.validate.enable": false,
   "diffEditor.ignoreTrimWhitespace": true,
@@ -163,5 +163,8 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "editor.unicodeHighlight.invisibleCharacters": false,
-  "telemetry.telemetryLevel": "off"
+  "telemetry.telemetryLevel": "off",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  }
 }

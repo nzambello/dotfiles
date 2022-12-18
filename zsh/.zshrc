@@ -198,7 +198,7 @@ export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.8/bin:$PATH"
-export PATH="/usr/local/share/dotnet/x64:$PATH"
+export PATH="/usr/local/share/dotnet:$PATH"
 export PATH="$PATH:/Users/nicola/.dotnet/tools"
 export GPG_TTY=$(tty)
 
@@ -206,3 +206,5 @@ export PNPM_HOME="/Users/nicola/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+export DOTNET_CLI_TELEMETRY_OPTOUT="1"

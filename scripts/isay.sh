@@ -5,7 +5,7 @@ do
     echo -n "> "
     read text
 
-    say "$text"
+    say -v Alice "$text"
 done
 
 exit 0
