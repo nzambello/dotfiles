@@ -173,8 +173,15 @@ alias renv="~/scripts/renv.sh"
 alias renv3="~/scripts/renv3.sh"
 alias isay="~/scripts/isay.sh"
 alias ag="ag --depth=9999"
+alias code="codium"
 
 eval "$(thefuck --alias)"
+
+kernelwave() {
+  cat /dev/random | hexdump -v -e '/1 "%u\n"' | awk '{ split("0,2,4,5,7,9,11,12",a,","); for (i = 0; i < 1; i+= 0.0001) printf("%08X\n", 100*sin(1382*exp((a[$1 % 8]/12)*log(2))*i)) }' | xxd -r -p | sox -t raw -r 64k -c 1 -e unsigned -b 16 - -d
+}
+
+transfer(){ if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n  transfer <file|directory>\n  ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;}
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
@@ -199,12 +206,12 @@ export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.8/bin:$PATH"
 export PATH="/usr/local/share/dotnet:$PATH"
-export PATH="$PATH:/Users/nicola/.dotnet/tools"
+export PATH="$PATH:/Users/nicola/.dotnet/tools:/opt/homebrew/Cellar/onnxruntime"
 export GPG_TTY=$(tty)
 
-export PNPM_HOME="/Users/nicola/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# export PNPM_HOME="/Users/nicola/Library/pnpm"
+# export PATH="$PNPM_HOME:$PATH"
+# export VOLTA_HOME="$HOME/.volta"
+# export PATH="$VOLTA_HOME/bin:$PATH"
 
 export DOTNET_CLI_TELEMETRY_OPTOUT="1"

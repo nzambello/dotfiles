@@ -11,7 +11,8 @@
 "
 "
 
-
+" let g:pymode_python = 'python3'
+" let g:loaded_python3_provider = 0
 
 "------------------------------------------------------------
 " Plugin list and install
@@ -46,7 +47,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Yggdroot/indentLine'
@@ -582,12 +583,37 @@ let g:dashboard_custom_footer = s:footer
 "
 " Ref: kyazdani42/nvim-tree.lua
 lua << EOF
-require'nvim-tree'.setup {
-  open_on_setup_file = true,
-  open_on_setup = true,
-  open_on_tab = true,
-  ignore_ft_on_setup  = { 'startify', 'dashboard' },
-}
+local function open_nvim_tree(data)
+  local IGNORED_FT = {
+    "markdown",
+  }
+
+  -- buffer is a real file on the disk
+  local real_file = vim.fn.filereadable(data.file) == 1
+
+  -- buffer is a [No Name]
+  local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
+
+  -- &ft
+  local filetype = vim.bo[data.buf].ft
+
+  -- only files please
+  if not real_file and not no_name then
+    return
+  end
+
+  -- skip ignored filetypes
+  if vim.tbl_contains(IGNORED_FT, filetype) then
+    return
+  end
+
+  -- open the tree but don't focus it
+  require("nvim-tree.api").tree.toggle({ focus = false })
+end
+-- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+-- require'nvim-tree'.setup {
+--   ignore_ft_on_setup  = { 'startify', 'dashboard' },
+-- }
 EOF
 
 nnoremap <C-n> :NvimTreeToggle<CR>
