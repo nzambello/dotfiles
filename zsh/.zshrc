@@ -220,21 +220,22 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 
-export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl"
-
 if [ "$(uname 2> /dev/null)" != "Linux" ]; then
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
 source ~/.github.sh
 
-export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-export PATH="/opt/homebrew/opt/python@3.8/bin:$PATH"
-export PATH="/usr/local/share/dotnet:$PATH"
-export PATH="$PATH:/Users/nicola/.dotnet/tools:/opt/homebrew/Cellar/onnxruntime"
-export GPG_TTY=$(tty)
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+  export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl"
+  export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
+  export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+  export PATH="/opt/homebrew/opt/python@3.8/bin:$PATH"
+  export PATH="/usr/local/share/dotnet:$PATH"
+  export PATH="$PATH:/Users/nicola/.dotnet/tools:/opt/homebrew/Cellar/onnxruntime"
+  export GPG_TTY=$(tty)
+fi
 
 # export PNPM_HOME="/Users/nicola/Library/pnpm"
 # export PATH="$PNPM_HOME:$PATH"
