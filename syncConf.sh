@@ -27,7 +27,8 @@ echo "Copied vim config"
 ###########
 
 mkdir -p code
-cp ~/Library/Application\ Support/Code/User/settings.json code/
+# cp ~/Library/Application\ Support/Code/User/settings.json code/
+cp ~/Library/Application\ Support/VSCodium/User/settings.json code/
 echo "Copied vscode config"
 
 

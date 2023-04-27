@@ -1,11 +1,9 @@
 {
-  "workbench.welcome.enabled": false,
   "editor.fontFamily": "DejaVu Sans Code",
   "editor.fontLigatures": true,
-  "terminal.integrated.shell.osx": "/bin/zsh",
-  "terminal.integrated.shell.linux": "/bin/bash",
-  "vim.disableAnnoyingNeovimMessage": true,
-  "workbench.panel.location": "bottom",
+  "css.lint.validProperties": ["composes"],
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.validProperties": ["composes"],
   "editor.find.autoFindInSelection": "never",
   "editor.formatOnSave": true,
   "prettier.semi": false,
@@ -14,35 +12,12 @@
   "prettier.singleQuote": true,
   "html.format.indentInnerHtml": true,
   "html.format.extraLiners": "",
-  "workbench.startupEditor": "newUntitledFile",
-  "C_Cpp.clang_format_style": "WebKit",
-  "eslint.options": {
-    "no-console": "off",
-    "no-debugger": "off",
-    "trailingComma": "none"
-  },
-  "gitlens.advanced.messages": {
-    "suppressCommitHasNoPreviousCommitWarning": false,
-    "suppressCommitNotFoundWarning": false,
-    "suppressFileNotUnderSourceControlWarning": false,
-    "suppressGitVersionWarning": false,
-    "suppressLineUncommittedWarning": false,
-    "suppressNoRepositoryWarning": false,
-    "suppressResultsExplorerNotice": false,
-    "suppressShowKeyBindingsNotice": true,
-    "suppressUpdateNotice": true,
-    "suppressWelcomeNotice": true
-  },
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f"
-  },
   "files.associations": {
     "*.zcml": "xml",
     "*.config": "less",
     "*.overrides": "less",
-    "*.variables": "less"
+    "*.variables": "less",
+    "*.jsx": "typescriptreact"
   },
   "[xml]": {
     "editor.formatOnSave": false,
@@ -63,25 +38,41 @@
   "[css]": {
     "editor.tabSize": 4,
     "prettier.tabWidth": 4,
-    "editor.defaultFormatter": "vscode.css-language-features"
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
   "javascript.validate.enable": false,
   "diffEditor.ignoreTrimWhitespace": true,
   "gitlens.keymap": "chorded",
   "git.autofetch": true,
   "cssModules.camelCase": true,
-  "gitlens.historyExplorer.enabled": true,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "eslint.packageManager": "yarn",
   "typescript.updateImportsOnFileMove.enabled": "never",
-  "gitlens.views.fileHistory.enabled": true,
-  "gitlens.views.lineHistory.enabled": true,
-  "python.formatting.provider": "black",
-  "gitlens.views.repositories.location": "gitlens",
-  "gitlens.views.fileHistory.location": "gitlens",
-  "gitlens.views.lineHistory.location": "gitlens",
-  "gitlens.views.compare.location": "gitlens",
-  "gitlens.views.search.location": "gitlens",
+  "eslint.options": {
+    "no-console": "off",
+    "no-debugger": "off",
+    "trailingComma": "none"
+  },
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false
+  },
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
+  },
+  "scss.lint.unknownAtRules": "ignore",
+  "workbench.colorTheme": "One Dark Theme",
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -106,7 +97,6 @@
   "scss.lint.important": "warning",
   "nasc-touchbar.togglePanel": false,
   "html.autoClosingTags": false,
-  "svn.enableProposedApi": "argument",
   "files.exclude": {
     "**/*.pyc": true,
     "**/*.swp": true
@@ -118,15 +108,6 @@
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "debug.node.autoAttach": "on",
-  "tabnine.experimentalAutoImports": true,
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "latex-workshop.view.pdf.viewer": "tab",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  },
   "editor.tabSize": 8,
   "editor.cursorStyle": "line",
   "editor.insertSpaces": false,
@@ -136,22 +117,16 @@
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
     "*": true,
-    "yaml": false,
-    "plaintext": false,
+    "yaml": true,
+    "plaintext": true,
     "markdown": true
   },
   "python.defaultInterpreterPath": "/usr/local/bin/python",
   "python.analysis.completeFunctionParens": true,
   "editor.renderControlCharacters": true,
-  "workbench.colorTheme": "One Dark Theme",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
   "svg.preview.mode": "svg",
   "[less]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -163,8 +138,13 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "editor.unicodeHighlight.invisibleCharacters": false,
-  "telemetry.telemetryLevel": "off",
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
-  }
+  "workbench.startupEditor": "none",
+  "totalTypeScript.hideAllTips": false,
+  "totalTypeScript.hideBasicTips": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.linkedEditing": true,
+  "totalTypeScript.hiddenTips": ["tuple-type", "passing-generics-to-types"],
+  "eslint.format.enable": true
 }
