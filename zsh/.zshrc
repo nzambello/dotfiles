@@ -1,21 +1,34 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export TERM="xterm-256color"
 
-# Load brew env
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+  # Load brew env
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/nicola/.oh-my-zsh"
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+  export ZSH="/Users/nicola/.oh-my-zsh"
+else
+  export ZSH="/home/nicola/.oh-my-zsh"
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="agnoster"
-POWERLEVEL9K_MODE='nerdfont-complete'
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# POWERLEVEL9K_MODE='nerdfont-complete'
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
 # Powerlevel9k left prompt config
@@ -108,9 +121,15 @@ HIST_STAMPS="dd/mm/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git yarn macos thefuck zsh-iterm-touchbar emoji zsh-syntax-highlighting virtualenv git-auto-fetch
-)
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+  plugins=(
+    git yarn macos thefuck zsh-iterm-touchbar emoji zsh-syntax-highlighting virtualenv git-auto-fetch
+  )
+else
+  plugins=(
+    git yarn thefuck zsh-syntax-highlighting virtualenv git-auto-fetch
+  )
+fi
 
 
 # Disable plugin verification for superuser
@@ -127,8 +146,10 @@ source $ZSH/oh-my-zsh.sh
 export MANPATH="/usr/local/man:/usr/local/share/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=it_IT.UTF-8
 export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 export EDITOR='nvim'
@@ -148,7 +169,11 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls='gls --color'
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+  alias ls='gls --color'
+else
+  alias ls='ls --color'
+fi
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
@@ -197,7 +222,9 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
 
 source ~/.github.sh
 
@@ -215,3 +242,6 @@ export GPG_TTY=$(tty)
 # export PATH="$VOLTA_HOME/bin:$PATH"
 
 export DOTNET_CLI_TELEMETRY_OPTOUT="1"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
