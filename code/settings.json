@@ -38,7 +38,7 @@
   "[css]": {
     "editor.tabSize": 4,
     "prettier.tabWidth": 4,
-    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    "editor.defaultFormatter": "vscode.css-language-features"
   },
   "javascript.validate.enable": false,
   "diffEditor.ignoreTrimWhitespace": true,
@@ -145,6 +145,26 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.linkedEditing": true,
-  "totalTypeScript.hiddenTips": ["tuple-type", "passing-generics-to-types"],
-  "eslint.format.enable": true
+  "totalTypeScript.hiddenTips": [
+    "tuple-type",
+    "passing-generics-to-types",
+    "in-operator-narrowing",
+    "typeof",
+    "non-null-expression",
+    "mapped-type",
+    "pick-utility-type",
+    "partial-utility-type"
+  ],
+  "eslint.format.enable": true,
+  "[dockercompose]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "git.openRepositoryInParentFolders": "always",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "notebook.lineNumbers": "on"
 }

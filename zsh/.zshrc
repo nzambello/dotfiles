@@ -52,7 +52,7 @@ POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='236'
 
 # Powerlevel9k right prompt config
 
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv root_indicator time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time virtualenv pyenv nvm root_indicator time)
 
 POWERLEVEL9K_STATUS_CROSS='true'
 POWERLEVEL9K_VIRTUALENV_BACKGROUND='white'
@@ -182,7 +182,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias cd..="cd .."
 alias lll='ll'
-alias vi="nvim"
+# alias vi="nvim"
 alias vim="nvim"
 alias gti="git"
 alias oni="oni2"
@@ -247,3 +247,7 @@ fi
 
 export DOTNET_CLI_TELEMETRY_OPTOUT="1"
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
