@@ -1,6 +1,6 @@
 {
-  "editor.fontFamily": "DejaVu Sans Code",
-  "editor.fontLigatures": true,
+  "editor.fontFamily": "'Monaspace Neon', 'DejaVu Sans Code', monospace",
+  "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03'",
   "css.lint.validProperties": ["composes"],
   "css.lint.unknownAtRules": "ignore",
   "scss.lint.validProperties": ["composes"],
