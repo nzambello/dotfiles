@@ -202,6 +202,7 @@ alias renv3="~/scripts/renv3.sh"
 alias isay="~/scripts/isay.sh"
 alias ag="ag --depth=9999"
 alias code="codium"
+alias snow="bash ~/scripts/snowjob.sh"
 
 eval "$(thefuck --alias)"
 

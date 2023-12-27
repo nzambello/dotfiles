@@ -34,7 +34,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 " Completion, linting and formatting
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+" Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'folke/trouble.nvim'
 Plug 'onsails/lspkind-nvim'
@@ -447,7 +447,7 @@ EOF
 
 lua << EOF
 local lspconfig = require("lspconfig")
-local null_ls = require("null-ls")
+-- local null_ls = require("null-ls")
 local buf_map = function(bufnr, mode, lhs, rhs, opts)
     vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
         silent = true,
@@ -489,18 +489,18 @@ lspconfig.tsserver.setup({
         buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
         buf_map(bufnr, "n", "gi", ":TSLspRenameFile<CR>")
         buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
-        on_attach(client, bufnr)
+        -- on_attach(client, bufnr)
     end,
 })
-null_ls.setup({
-    sources = {
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.code_actions.eslint,
-        null_ls.builtins.formatting.prettier,
-    },
-    on_attach = on_attach,
-})
 EOF
+" null_ls.setup({
+"     sources = {
+"         null_ls.builtins.diagnostics.eslint,
+"         null_ls.builtins.code_actions.eslint,
+"         null_ls.builtins.formatting.prettier,
+"     },
+"     on_attach = on_attach,
+" })
 
 lua << EOF
 -- npm install -g diagnostic-languageserver eslint_d prettier_d_slim prettier
@@ -706,11 +706,12 @@ lua << EOF
 local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
     local opts = {
-      capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+      capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
     }
     server:setup(opts)
 end)
 EOF
+
 
 "-------------------------------------------------------------
 " cmp
@@ -732,24 +733,24 @@ lua <<EOF
         behavior = cmp.ConfirmBehavior.Insert,
         select = true,
       },
-      ['<Tab>'] = function(fallback)
-        if not cmp.select_next_item() then
-          if vim.bo.buftype ~= 'prompt' and has_words_before() then
-            cmp.complete()
-          else
-            fallback()
-          end
-        end
-      end,
-      ['<S-Tab>'] = function(fallback)
-        if not cmp.select_prev_item() then
-          if vim.bo.buftype ~= 'prompt' and has_words_before() then
-            cmp.complete()
-          else
-            fallback()
-          end
-        end
-      end,
+      -- ['<Tab>'] = function(fallback)
+      --   if not cmp.select_next_item() then
+      --     if vim.bo.buftype ~= 'prompt' and has_words_before() then
+      --       cmp.complete()
+      --     else
+      --       fallback()
+      --     end
+      --   end
+      -- end,
+      -- ['<S-Tab>'] = function(fallback)
+      --   if not cmp.select_prev_item() then
+      --     if vim.bo.buftype ~= 'prompt' and has_words_before() then
+      --       cmp.complete()
+      --     else
+      --       fallback()
+      --     end
+      --   end
+      -- end,
     },
     sources = {
       { name = 'nvim_lsp' },
