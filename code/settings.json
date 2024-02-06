@@ -153,7 +153,11 @@
     "non-null-expression",
     "mapped-type",
     "pick-utility-type",
-    "partial-utility-type"
+    "partial-utility-type",
+    "omit-utility-type",
+    "interface-with-generics",
+    "record-utility-type",
+    "keyof"
   ],
   "eslint.format.enable": true,
   "[dockercompose]": {
@@ -166,5 +170,6 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "notebook.lineNumbers": "on"
+  "notebook.lineNumbers": "on",
+  "git.enableSmartCommit": true
 }
