@@ -203,6 +203,8 @@ alias isay="~/scripts/isay.sh"
 alias ag="ag --depth=9999"
 alias code="codium"
 alias snow="bash ~/scripts/snowjob.sh"
+alias updatememori="bash ~/scripts/update-memori-ai.sh"
+alias stress="~/scripts/stress.sh"
 
 eval "$(thefuck --alias)"
 
@@ -253,4 +255,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$(zellij setup --generate-auto-start zsh)"
+# eval "$(zellij setup --generate-auto-start zsh)"
+
+# bun completions
+[ -s "/Users/nicola/.bun/_bun" ] && source "/Users/nicola/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

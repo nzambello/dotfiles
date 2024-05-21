@@ -24,7 +24,7 @@
     conflicts = diff --name-only --diff-filter=U
 
 [core]
-    editor = vim
+    editor = nvim
 
 [diff]
     tool = vimdiff

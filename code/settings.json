@@ -157,7 +157,10 @@
     "omit-utility-type",
     "interface-with-generics",
     "record-utility-type",
-    "keyof"
+    "keyof",
+    "generic-slots-in-functions",
+    "bigint",
+    "returntype-utility-type"
   ],
   "eslint.format.enable": true,
   "[dockercompose]": {
@@ -171,5 +174,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "notebook.lineNumbers": "on",
-  "git.enableSmartCommit": true
+  "git.enableSmartCommit": true,
+  "oxc_language_server.enable": true,
+  "prisma.showPrismaDataPlatformNotification": false
 }
